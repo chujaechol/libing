@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DS — Architectural Surfaces</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="top-nav" id="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html" aria-label="DS">
+        <span class="logo__letter">D</span><span class="logo__sep" aria-hidden="true"></span><span class="logo__letter">S</span>
+      </a>
+      <div class="top-nav__links">
+        <a class="nav-link is-active" href="index.html">Collections</a>
+        <a class="nav-link" href="material-list.html">Materials</a>
+        <a class="nav-link" href="index.html#collections">Showroom</a>
+        <a class="nav-link" href="index.html">Contact</a>
+      </div>
+    </div>
+    <div class="top-nav__actions">
+      <button class="icon-btn" type="button" aria-label="Search">
+        <span class="material-symbols-outlined">search</span>
+      </button>
+      <button class="icon-btn" type="button" aria-label="Account">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+      <button class="icon-btn" type="button" aria-label="Cart">
+        <span class="material-symbols-outlined">shopping_bag</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div
+          class="hero__image parallax-bg"
+          style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLsf3HlFdDB7_lwowCtwWdOQy-zujVUZNjjp1hkK6H_mXSZcBkTxJMX7SQaI3VlzgTw-kTYhaUVcHNet4Dm5NIdqaVUq6-vu3LcnxBx_svl1PNbpfAfhvUxYHoyR9ElC2kTpwicTRXci0OWrdIQDLGQb4kONvwJtcvQm2UD8JvjMsLZ3w4NUbhfAqeS4FIl20gxoOyxftAqYY68juM1vE4KDsj7DPfkiv-ZKp8-s7s9LENLAmOyGy6i3Vhw')"
+        ></div>
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="hero__content">
+        <h1 class="hero__title" id="hero-title">
+          공간의 품격을 완성하는 것은<br />순간입니다.
+        </h1>
+        <div class="hero__line" id="hero-line"></div>
+        <p class="hero__subtitle" id="hero-subtitle">
+          The Architectural Essence of Surfaces
+        </p>
+      </div>
+
+      <div class="hero__scroll">
+        <span class="hero__scroll-label">Scroll</span>
+        <span class="material-symbols-outlined">expand_more</span>
+      </div>
+    </section>
+
+    <section class="collections" id="collections">
+      <div class="collections__grid reveal">
+        <article class="collection-card">
+          <a class="collection-card__link" href="material-list.html" aria-label="Material List 상세 보기">
+            <div class="collection-card__media">
+              <div class="collection-card__image collection-card__image--material-list" style="background-image: url('assets/collection-material-list.jpg')"></div>
+            </div>
+            <div class="collection-card__meta">
+              <h3>Material List</h3>
+              <span>Collection 01</span>
+            </div>
+            <p>
+              Curated selection of premium surfaces from around the world,
+              specifically chosen for architectural integrity.
+            </p>
+          </a>
+        </article>
+
+        <article class="collection-card collection-card--offset-down">
+          <a class="collection-card__link" href="auxiliary.html" aria-label="Auxiliary materials · Faucets 보기">
+            <div class="collection-card__media">
+              <div class="collection-card__image" style="background-image: url('assets/collection-auxiliary.jpg')"></div>
+            </div>
+            <div class="collection-card__meta">
+              <h3>Auxiliary materials</h3>
+              <span>Collection 02</span>
+            </div>
+            <p>
+              The essential components that bridge the gap between material and
+              finished architecture.
+            </p>
+          </a>
+        </article>
+
+        <article class="collection-card collection-card--offset-up">
+          <div class="collection-card__media">
+            <div class="collection-card__image" style="background-image: url('assets/collection-records.jpg')"></div>
+          </div>
+          <div class="collection-card__meta">
+            <h3>Records Room</h3>
+            <span>Collection 03</span>
+          </div>
+          <p>
+            A deep archive of technical specifications and project histories for
+            design professionals.
+          </p>
+        </article>
+
+        <article class="collection-card">
+          <div class="collection-card__media">
+            <div class="collection-card__image collection-card__image--photo-gallery" style="background-image: url('assets/photo-gallery.jpg')"></div>
+          </div>
+          <div class="collection-card__meta">
+            <h3>Photo Gallery</h3>
+            <span>Collection 04</span>
+          </div>
+          <p>
+            Visual narratives of spaces transformed by DS materials and
+            architectural vision.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature feature--compact" id="material-list">
+      <div class="feature__inner reveal">
+        <div class="feature__media">
+          <div class="feature__image-wrap">
+            <div class="feature__image" style="background-image: url('assets/feature-material.jpg')"></div>
+          </div>
+          <div class="feature__frame" aria-hidden="true"></div>
+        </div>
+
+        <div class="feature__content">
+          <span class="eyebrow">Product Focus</span>
+          <h2>Material List: Precise Dimensioning</h2>
+          <p>
+            Our collections are defined by architectural standards. From classic
+            800x800mm squares to expansive 600x1200mm slabs, we provide the scale
+            required for ambitious contemporary projects.
+          </p>
+          <div class="feature__formats">
+            <a class="format-card" href="catalog.html?format=800x800">
+              <span>Format</span>
+              <p>800 * 800 mm</p>
+            </a>
+            <a class="format-card" href="catalog.html?format=600x1200">
+              <span>Format</span>
+              <p>600 * 1200 mm</p>
+            </a>
+            <a class="format-card" href="catalog.html?format=600x600">
+              <span>Format</span>
+              <p>600 * 600 mm</p>
+            </a>
+            <a class="format-card" href="catalog.html?format=800x1600">
+              <span>Format</span>
+              <p>800 * 1600 mm</p>
+            </a>
+            <a class="format-card" href="catalog.html?format=300x600">
+              <span>Format</span>
+              <p>300 * 600 mm</p>
+            </a>
+            <a class="format-card" href="catalog.html?format=300x300">
+              <span>Format</span>
+              <p>300 * 300 mm</p>
+            </a>
+            <a class="format-card" href="catalog.html?format=400x400">
+              <span>Format</span>
+              <p>400 * 400 mm</p>
+            </a>
+            <a class="format-card" href="catalog.html?format=1200x1200">
+              <span>Format</span>
+              <p>1200 * 1200 mm</p>
+            </a>
+          </div>
+          <a class="btn btn--light" href="material-list.html">Explore Categories</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter newsletter--compact">
+      <div class="newsletter__inner reveal">
+        <span class="eyebrow">Connections</span>
+        <h2>Stay Inspired</h2>
+        <p>
+          Receive a curated digest of architectural material trends and new
+          collection releases.
+        </p>
+        <form class="newsletter__form" action="#" method="post">
+          <input type="email" placeholder="Your email address" required />
+          <button class="btn btn--dark" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="logo" href="index.html" aria-label="DS">
+            <span class="logo__letter">D</span><span class="logo__sep" aria-hidden="true"></span><span class="logo__letter">S</span>
+          </a>
+          <p>
+            Redefining architectural surfaces through a lens of quiet luxury and
+            technical excellence.
+          </p>
+        </div>
+
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#">All Collections</a></li>
+            <li><a href="#">Stone &amp; Marble</a></li>
+            <li><a href="#">Ceramic &amp; Porcelain</a></li>
+            <li><a href="#">Mosaic</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">Our Showroom</a></li>
+            <li><a href="#">Brand Story</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>Seoul, Gangnam-gu, Nonhyeon-ro</li>
+            <li>T. 02-1234-5678</li>
+            <li>E. hello@ds-tiles.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© 2024 DS Architectural Surfaces. All rights reserved.</p>
+        <div class="site-footer__social">
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a class="bottom-nav__item is-active" href="#">
+      <span class="material-symbols-outlined">gallery_thumbnail</span>
+      <span>Gallery</span>
+    </a>
+    <a class="bottom-nav__item" href="#">
+      <span class="material-symbols-outlined">bookmark</span>
+      <span>Saved</span>
+    </a>
+    <a class="bottom-nav__item" href="material-list.html">
+      <span class="material-symbols-outlined">grid_guides</span>
+      <span>Materials</span>
+    </a>
+    <a class="bottom-nav__item" href="#">
+      <span class="material-symbols-outlined">person</span>
+      <span>Account</span>
+    </a>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

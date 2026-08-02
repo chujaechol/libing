@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Material List — DS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#000000",
+            "on-primary": "#ffffff",
+            secondary: "#775a19",
+            "secondary-fixed": "#ffdea5",
+            surface: "#f9f9f9",
+            "on-surface": "#1a1c1c",
+            "on-surface-variant": "#434747",
+            "surface-container": "#eeeeee",
+            "surface-container-low": "#f4f3f3",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e2e2e2",
+            "outline-variant": "#c4c7c7",
+            "on-tertiary-container": "#838483",
+            "on-background": "#1a1c1c",
+          },
+          spacing: {
+            gutter: "24px",
+            unit: "8px",
+            "margin-mobile": "20px",
+            "section-gap": "128px",
+            "margin-desktop": "64px",
+          },
+          maxWidth: { "container-max": "1440px" },
+          fontFamily: {
+            "label-caps": ["DM Sans", "sans-serif"],
+            "headline-sm": ["Libre Caslon Text", "serif"],
+            "headline-md": ["Libre Caslon Text", "serif"],
+            "display-lg": ["Libre Caslon Text", "serif"],
+            "body-md": ["DM Sans", "sans-serif"],
+            "body-lg": ["DM Sans", "sans-serif"],
+          },
+          fontSize: {
+            "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "500" }],
+            "headline-sm": ["24px", { lineHeight: "1.4", fontWeight: "400" }],
+            "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "400" }],
+            "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400" }],
+            "display-lg-mobile": ["40px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+          },
+          borderRadius: { DEFAULT: "0px", lg: "0px", xl: "0px", full: "0px" },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+  <header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30">
+    <div class="h-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 min-w-0">
+        <img alt="DS" class="h-8 w-auto object-contain" src="assets/logo.png" />
+        <span class="font-label-caps text-label-caps tracking-widest text-on-surface hidden sm:inline">ARCHITECTURAL SURFACES</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-10">
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="index.html">COLLECTIONS</a>
+        <a class="font-label-caps text-label-caps text-primary font-bold" href="materials.html">MATERIALS</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="auxiliary.html">SHOWROOM</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="index.html#contact">CONTACT</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 bg-primary flex items-center justify-center" aria-hidden="true">
+          <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden w-8 h-8 flex items-center justify-center" type="button" aria-label="Menu" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-nav" class="hidden md:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-6 flex flex-col gap-4">
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="index.html">COLLECTIONS</a>
+      <a class="font-label-caps text-label-caps" href="materials.html">MATERIALS</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="auxiliary.html">SHOWROOM</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="index.html#contact">CONTACT</a>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 bg-surface">
+    <section class="relative h-[70vh] min-h-[520px] flex items-center overflow-hidden -mt-20">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-on-background/40 z-10"></div>
+        <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD58sDhSPr6SaXvEY7U26smjnWrYyGVwLGue1VVyHs-NyG5_lvNxjVQkaZ-QeGI3_GCHji_GkZWFYo6_dr91Xx_o7eawr1jBmcih5qZcF1hkfHnJSoJ7bYk2jfJyLi7kTdATAr0pfTIwUjTfffu7e349a5YCOg_aV4Cqxsg9uXZHMDbPa7aPPwLFRDWZPa6waHqH18JrCeZH9HuWg1xr98HJzTexmHPAv0HweWcfpIqmjbDQtBpUpFx')"></div>
+      </div>
+      <div class="relative z-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full pt-20">
+        <div class="max-w-2xl">
+          <span class="font-label-caps text-label-caps text-on-primary mb-6 block tracking-[0.3em] animate-fade-in">DIMENSION &amp; SCALE</span>
+          <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-8 leading-tight">Material List:<br /><span class="italic font-light">Precise Dimensioning</span></h1>
+          <p class="font-body-lg text-body-lg text-on-primary/80 max-w-lg">
+            Discover the technical foundation of our collections. From standard modularity to bespoke architectural formats, engineered for seamless integration.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 md:py-section-gap bg-surface">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end reveal">
+          <div class="md:col-span-5">
+            <span class="font-label-caps text-label-caps text-secondary mb-4 block">01 / CAPABILITIES</span>
+            <h2 class="font-headline-md text-headline-md text-on-surface mb-8">Architectural standards redefined through technical excellence.</h2>
+          </div>
+          <div class="md:col-span-6 md:col-start-7">
+            <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+              Our formats are calculated to minimize grout lines and maximize visual continuity. Every slab undergoes precision rectified edging to ensure a tolerance of less than 0.5mm.
+            </p>
+            <div class="flex gap-12">
+              <div>
+                <span class="block font-headline-sm text-headline-sm text-on-surface">99.8%</span>
+                <span class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Rectification Accuracy</span>
+              </div>
+              <div>
+                <span class="block font-headline-sm text-headline-sm text-on-surface">6.0mm</span>
+                <span class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Ultra-Thin Profile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-24 md:pb-section-gap" id="formats">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="flex justify-between items-end mb-12 md:mb-16 border-b border-outline-variant pb-8 reveal">
+          <div>
+            <h3 class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Available Formats</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-2">Select a format to browse the catalogue.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter" id="format-grid"></div>
+      </div>
+    </section>
+
+    <section class="bg-surface-container py-24 md:py-section-gap overflow-hidden">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="flex flex-col md:flex-row gap-16 items-center reveal">
+          <div class="w-full md:w-1/2 relative">
+            <div class="aspect-square bg-surface overflow-hidden">
+              <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" alt="Texture detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDDbGHPd2kkB2nzloQ2HgmcadcPui-zVzi2T4zm3BF3lWi7ksHxnAw_s9tUzHsNGPAGKDq9ilMgyey3pdny5qdvCczFpwRkUAHJLBMrIJTZr29yPD4FMUOGCcPXCuJw5ueh9t8c4Iae2N4VkJaSnK9EBJ8Sg0KlNTg9sxpFBmvWqDmkuk8iO7xl6zPjEpqL98CzKPJqxn9qRqZ6f0llkfSF4eSNFIEb7Y5jwzodfMRp5f3bPlyIPzf" />
+            </div>
+          </div>
+          <div class="w-full md:w-1/2">
+            <span class="font-label-caps text-label-caps text-on-surface-variant mb-4 block">02 / TEXTURE MATRIX</span>
+            <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-10">Tactile precision beyond the visual.</h2>
+            <div class="space-y-8">
+              <div class="flex items-center gap-6 border-b border-outline-variant pb-6">
+                <span class="font-label-caps text-label-caps text-on-tertiary-container">01</span>
+                <div class="flex-1">
+                  <h4 class="font-headline-sm text-headline-sm">Natural / Matte</h4>
+                  <p class="text-on-surface-variant font-body-md">R10 Slip resistance for domestic interiors.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-6 border-b border-outline-variant pb-6">
+                <span class="font-label-caps text-label-caps text-on-tertiary-container">02</span>
+                <div class="flex-1">
+                  <h4 class="font-headline-sm text-headline-sm">Silk / Honed</h4>
+                  <p class="text-on-surface-variant font-body-md">Satin-soft touch with ultra-low light reflectivity.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-6 border-b border-outline-variant pb-6">
+                <span class="font-label-caps text-label-caps text-on-tertiary-container">03</span>
+                <div class="flex-1">
+                  <h4 class="font-headline-sm text-headline-sm">Grip / Textured</h4>
+                  <p class="text-on-surface-variant font-body-md">R11 Engineered for wet areas and exterior patios.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary text-on-primary py-24">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center reveal">
+        <span class="font-label-caps text-label-caps tracking-[0.4em] mb-8 block opacity-60">PLAN YOUR VISION</span>
+        <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-12">Request technical samples.</h2>
+        <div class="flex flex-col md:flex-row justify-center gap-6">
+          <a href="index.html#contact" class="px-12 py-5 bg-on-primary text-primary font-label-caps text-label-caps hover:bg-secondary-fixed transition-colors">SAMPLE KIT REQUEST</a>
+          <button class="px-12 py-5 border border-on-primary/30 font-label-caps text-label-caps hover:bg-on-primary hover:text-primary transition-all" type="button">DOWNLOAD BIM / CAD</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full bg-surface-container-lowest py-16 md:py-section-gap border-t border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-gutter">
+        <div class="md:col-span-4">
+          <img alt="DS Brand Logo" class="h-10 w-auto object-contain" src="assets/logo.png" />
+          <p class="font-body-md text-on-surface-variant mt-6 pr-8">Crafting silence through materiality.</p>
+        </div>
+        <div class="md:col-span-2 flex flex-col gap-4">
+          <span class="font-label-caps text-label-caps border-b border-outline-variant pb-2">EXPLORE</span>
+          <a class="text-on-surface-variant hover:text-on-surface" href="index.html">Collections</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="materials.html">Materials</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="auxiliary.html">Showroom</a>
+        </div>
+        <div class="md:col-span-2 flex flex-col gap-4">
+          <span class="font-label-caps text-label-caps border-b border-outline-variant pb-2">STUDIO</span>
+          <a class="text-on-surface-variant hover:text-on-surface" href="#">About Us</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="#">Sourcing</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="#">Sustainability</a>
+        </div>
+        <div class="md:col-span-4 flex flex-col gap-4">
+          <span class="font-label-caps text-label-caps border-b border-outline-variant pb-2">CONTACT</span>
+          <p class="text-on-surface-variant">Studio 4, Architectural District<br />Milan, Italy</p>
+          <a class="underline" href="mailto:inquiry@ds-surfaces.com">inquiry@ds-surfaces.com</a>
+        </div>
+      </div>
+      <div class="mt-16 pt-8 border-t border-outline-variant/30 flex justify-between items-center">
+        <p class="font-label-caps text-label-caps text-on-tertiary-container">© 2024 DS ARCHITECTURAL SURFACES</p>
+        <div class="flex gap-6">
+          <span class="material-symbols-outlined text-on-surface-variant">share</span>
+          <span class="material-symbols-outlined text-on-surface-variant">public</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/catalog-data.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/materials.js"></script>
+</body>
+</html>

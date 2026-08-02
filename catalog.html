@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogue — DS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#000000",
+            "on-primary": "#ffffff",
+            secondary: "#775a19",
+            surface: "#f9f9f9",
+            "on-surface": "#1a1c1c",
+            "on-surface-variant": "#434747",
+            "surface-container": "#eeeeee",
+            "surface-container-low": "#f4f3f3",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#c4c7c7",
+            "on-tertiary-container": "#838483",
+          },
+          spacing: {
+            gutter: "24px",
+            "margin-mobile": "20px",
+            "section-gap": "128px",
+            "margin-desktop": "64px",
+          },
+          maxWidth: { "container-max": "1440px" },
+          fontFamily: {
+            "label-caps": ["DM Sans", "sans-serif"],
+            "headline-sm": ["Libre Caslon Text", "serif"],
+            "headline-md": ["Libre Caslon Text", "serif"],
+            "display-lg": ["Libre Caslon Text", "serif"],
+            "body-md": ["DM Sans", "sans-serif"],
+          },
+          fontSize: {
+            "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "500" }],
+            "headline-sm": ["24px", { lineHeight: "1.4", fontWeight: "400" }],
+            "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "400" }],
+            "display-lg": ["40px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+          },
+          borderRadius: { DEFAULT: "0px", full: "0px" },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+  <header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30">
+    <div class="h-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img alt="DS" class="h-8 w-auto object-contain" src="assets/logo.png" />
+        <span class="font-label-caps text-label-caps tracking-widest hidden sm:inline">ARCHITECTURAL SURFACES</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-10">
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="index.html">COLLECTIONS</a>
+        <a class="font-label-caps text-label-caps text-primary font-bold" href="materials.html">MATERIALS</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="auxiliary.html">SHOWROOM</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="index.html#contact">CONTACT</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden" type="button" aria-label="Menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+    <div id="mobile-nav" class="hidden md:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-6 flex flex-col gap-4">
+      <a href="index.html">COLLECTIONS</a>
+      <a href="materials.html">MATERIALS</a>
+      <a href="auxiliary.html">SHOWROOM</a>
+    </div>
+  </header>
+
+  <main class="w-full pt-20">
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20">
+      <a href="materials.html" class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface mb-10">
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+        BACK TO FORMATS
+      </a>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-outline-variant pb-8">
+        <div>
+          <span class="font-label-caps text-label-caps text-secondary mb-3 block">CATALOGUE</span>
+          <h1 class="font-display-lg text-on-surface" id="catalog-title">Format</h1>
+          <p class="font-body-md text-on-surface-variant mt-3" id="catalog-count">0 products</p>
+        </div>
+      </div>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter" id="catalog-grid"></ul>
+    </section>
+  </main>
+
+  <footer class="w-full bg-surface-container-lowest py-16 border-t border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center">
+      <p class="font-label-caps text-label-caps text-on-tertiary-container">© 2024 DS ARCHITECTURAL SURFACES</p>
+      <a class="font-label-caps text-label-caps" href="materials.html">MATERIALS</a>
+    </div>
+  </footer>
+
+  <script src="js/catalog-data.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/catalog-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    overscroll-behavior: none;
+  }
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slow-zoom {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s infinite alternate ease-in-out;
+}
+
+@keyframes scroll-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scroll-line {
+  animation: scroll-line 2s infinite ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wish-btn.is-active .material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 24;
+  color: #ba1a1a;
+}
+
+@media (max-width: 767px) {
+  .mobile-nav-open {
+    overflow: hidden;
+  }
+}
+
+/* Material format tiles — laid sample look */
+.format-tile-stage {
+  perspective: 900px;
+  perspective-origin: 50% 35%;
+  min-height: 168px;
+}
+
+.format-tile {
+  position: relative;
+  flex-shrink: 0;
+  background-color: #d4d4d2;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(68, 72, 72, 0.28);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.45) inset,
+    0 18px 28px -16px rgba(26, 28, 28, 0.45),
+    0 6px 10px -6px rgba(26, 28, 28, 0.28);
+  transform: rotateX(58deg) rotateZ(-28deg) scale(1.05);
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.format-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    transparent 42%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+}
+
+.group:hover .format-tile {
+  transform: rotateX(52deg) rotateZ(-22deg) scale(1.12);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 26px 36px -14px rgba(26, 28, 28, 0.5),
+    0 10px 14px -8px rgba(26, 28, 28, 0.3);
+}
+
+.format-tile--blank {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+/* Collections grid (legacy card layout) */
+.collections {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 96px 20px 128px;
+}
+
+@media (min-width: 768px) {
+  .collections {
+    padding: 128px 64px;
+  }
+}
+
+.collections__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px 24px;
+}
+
+@media (min-width: 768px) {
+  .collections__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 64px 40px;
+  }
+}
+
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.collection-card__link {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.collection-card__media {
+  overflow: hidden;
+  background: #eeeeee;
+}
+
+.collection-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collection-card__image--material-list {
+  aspect-ratio: 16 / 10;
+}
+
+.collection-card__image--photo-gallery {
+  aspect-ratio: 16 / 9;
+}
+
+.collection-card:hover .collection-card__image,
+.collection-card__link:hover .collection-card__image {
+  transform: scale(1.04);
+}
+
+.collection-card__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.collection-card__meta h3 {
+  margin: 0;
+  font-family: "Libre Caslon Text", serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #1a1c1c;
+  transition: color 0.35s ease;
+}
+
+.collection-card__link:hover .collection-card__meta h3 {
+  color: #775a19;
+}
+
+.collection-card__meta span {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #434747;
+  white-space: nowrap;
+}
+
+.collection-card > p,
+.collection-card__link > p {
+  margin: 0;
+  max-width: 36ch;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #434747;
+}
+
+@media (min-width: 768px) {
+  .collection-card--offset-down {
+    margin-top: 72px;
+  }
+
+  .collection-card--offset-up {
+    margin-top: -40px;
+  }
+}

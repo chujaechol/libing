@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>계림 (KYERIM) — DS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#000000",
+            "on-primary": "#ffffff",
+            secondary: "#775a19",
+            surface: "#f9f9f9",
+            "on-surface": "#1a1c1c",
+            "on-surface-variant": "#434747",
+            "surface-container": "#eeeeee",
+            "surface-container-low": "#f4f3f3",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#c4c7c7",
+            "on-tertiary-container": "#838483",
+          },
+          spacing: {
+            gutter: "24px",
+            "margin-mobile": "20px",
+            "section-gap": "128px",
+            "margin-desktop": "64px",
+          },
+          maxWidth: { "container-max": "1440px" },
+          fontFamily: {
+            "label-caps": ["DM Sans", "sans-serif"],
+            "headline-sm": ["Libre Caslon Text", "serif"],
+            "headline-md": ["Libre Caslon Text", "serif"],
+            "display-lg": ["Libre Caslon Text", "serif"],
+            "body-md": ["DM Sans", "sans-serif"],
+          },
+          fontSize: {
+            "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "500" }],
+            "headline-sm": ["24px", { lineHeight: "1.4", fontWeight: "400" }],
+            "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "400" }],
+            "display-lg": ["40px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+          },
+          borderRadius: { DEFAULT: "0px", full: "0px" },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+  <header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30">
+    <div class="h-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img alt="DS" class="h-8 w-auto object-contain" src="assets/logo.png" />
+        <span class="font-label-caps text-label-caps tracking-widest hidden sm:inline">ARCHITECTURAL SURFACES</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-10">
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="index.html">COLLECTIONS</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="materials.html">MATERIALS</a>
+        <a class="font-label-caps text-label-caps text-primary font-bold" href="auxiliary.html">SHOWROOM</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="index.html#contact">CONTACT</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden" type="button" aria-label="Menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+    <div id="mobile-nav" class="hidden md:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-6 flex flex-col gap-4">
+      <a href="index.html">COLLECTIONS</a>
+      <a href="materials.html">MATERIALS</a>
+      <a href="auxiliary.html">SHOWROOM</a>
+    </div>
+  </header>
+
+  <main class="w-full pt-20">
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20">
+      <a id="kyerim-back" href="auxiliary.html#brands" class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface mb-10">
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+        <span id="kyerim-back-label">BACK TO BRANDS</span>
+      </a>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-outline-variant pb-8">
+        <div>
+          <span class="font-label-caps text-label-caps text-secondary mb-3 block">PARTNER BRAND</span>
+          <h1 class="font-display-lg text-on-surface">계림 (KYERIM)</h1>
+          <p id="kyerim-subtitle" class="font-body-md text-on-surface-variant mt-3">Select a category</p>
+        </div>
+      </div>
+
+      <div id="kyerim-categories" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+        <a href="brand-kyerim.html?cat=toilet" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 01</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">wc</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">양변기</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Toilet</p>
+          </div>
+        </a>
+
+        <a href="brand-kyerim.html?cat=basin" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 02</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">countertops</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">세면기</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Basin</p>
+          </div>
+        </a>
+
+        <a href="brand-kyerim.html?cat=faucet" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 03</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">water_drop</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">수전</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Faucet</p>
+          </div>
+        </a>
+
+        <a href="brand-kyerim.html?cat=bidet" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 04</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">bathtub</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">일체형비데</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Bidet</p>
+          </div>
+        </a>
+
+        <a href="brand-kyerim.html?cat=urinal" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 05</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">man</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">소변기</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Urinal</p>
+          </div>
+        </a>
+
+        <a href="brand-kyerim.html?cat=accessible" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 06</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">accessible</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">장애인용 / 실버용</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Accessible / Silver</p>
+          </div>
+        </a>
+      </div>
+
+      <div id="kyerim-products" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+        <a href="product.html?format=kyerim&product=C-1051F" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">01</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/c-1051f.png" alt="계림 C-1051F" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">C-1051F</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">원피스 · 400×715×740</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=C-1053F" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">02</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/c-1053f.png" alt="계림 C-1053F" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">C-1053F</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">투피스 · 400×700×740</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=C-1055F" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">03</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/c-1055f.png" alt="계림 C-1055F" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">C-1055F</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">투피스 · 400×710×740</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=C-1056F" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">04</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/c-1056f.png" alt="계림 C-1056F" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">C-1056F</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">투피스 · 400×720×740</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=C-401SF" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">05</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/c-401sf.png" alt="계림 C-401SF" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">C-401SF</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">원피스 · 400×730×760</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=C-403F" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">06</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/c-403f.png" alt="계림 C-403F" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">C-403F</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">투피스 · 400×700×760</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=C-404F" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">07</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/c-404f.png" alt="계림 C-404F" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">C-404F</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">투피스 · 400×710×760</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=C-1701F" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">08</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/c-1701f.png" alt="계림 C-1701F" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">C-1701F</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">투피스 · 400×680×780</p>
+          </div>
+        </a>
+
+        <a href="product.html?format=kyerim&product=L-345UF" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">01</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/l-345uf.png" alt="계림 L-345UF" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">L-345UF</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">큐브형 · 500×500×450</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=L-206UF" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">02</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/l-206uf.png" alt="계림 L-206UF" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">L-206UF</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">반다리 · 540×445×360</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=L-208UF" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">03</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/l-208uf.png" alt="계림 L-208UF" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">L-208UF</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">반다리 · 550×450×370</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=L-322UF" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">04</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/l-322uf.png" alt="계림 L-322UF" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">L-322UF</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">반다리 · 470×410×380</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=L-325UF" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">05</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/l-325uf.png" alt="계림 L-325UF" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">L-325UF</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">반다리 · 480×420×380</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=L-322UFD" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">06</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/l-322ufd.png" alt="계림 L-322UFD" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">L-322UFD</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">반다리 · 470×410×380</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=L-317ULF" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">07</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/l-317ulf.png" alt="계림 L-317ULF" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">L-317ULF</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">반다리 · 550×460×380</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=L-344UF" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">08</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/l-344uf.png" alt="계림 L-344UF" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">L-344UF</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">큐브형 · 500×450×400</p>
+          </div>
+        </a>
+        <a href="product.html?format=kyerim&product=L-329UF" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">09</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/kyerim/l-329uf.png" alt="계림 L-329UF" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">계림바스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">L-329UF</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">큐브형 · 500×450×380</p>
+          </div>
+        </a>
+      </div>
+
+      <div id="kyerim-empty" class="hidden py-24 text-center">
+        <p class="font-headline-sm text-headline-sm text-on-surface mb-3">준비 중</p>
+        <p class="font-body-md text-on-surface-variant">해당 카테고리 제품을 곧 업데이트할 예정입니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full bg-surface-container-low border-t border-outline-variant/30 py-16 mt-20">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between gap-10">
+      <div>
+        <p class="font-label-caps text-label-caps tracking-widest mb-4">DS ARCHITECTURAL SURFACES</p>
+        <p class="font-body-md text-on-surface-variant max-w-sm">엄선된 파트너 브랜드와 함께 완성하는 욕실 공간.</p>
+      </div>
+      <p class="font-label-caps text-label-caps text-on-tertiary-container self-end">© 2024 DS ARCHITECTURAL SURFACES</p>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cat = new URLSearchParams(window.location.search).get("cat");
+      const categories = document.getElementById("kyerim-categories");
+      const products = document.getElementById("kyerim-products");
+      const empty = document.getElementById("kyerim-empty");
+      const subtitle = document.getElementById("kyerim-subtitle");
+      const back = document.getElementById("kyerim-back");
+      const backLabel = document.getElementById("kyerim-back-label");
+
+      const labels = {
+        toilet: "양변기",
+        basin: "세면기",
+        faucet: "수전",
+        bidet: "일체형비데",
+        urinal: "소변기",
+        accessible: "장애인용 / 실버용",
+      };
+
+      if (!cat) return;
+
+      categories.classList.add("hidden");
+      back.href = "brand-kyerim.html";
+      backLabel.textContent = "BACK TO CATEGORIES";
+      subtitle.textContent = labels[cat] || "Category";
+
+      const matched = products.querySelectorAll(`[data-cat="${cat}"]`);
+      if (matched.length) {
+        products.classList.remove("hidden");
+        products.querySelectorAll("[data-cat]").forEach((card) => {
+          card.classList.toggle("hidden", card.dataset.cat !== cat);
+        });
+      } else {
+        empty.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+</html>

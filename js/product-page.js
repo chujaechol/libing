@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (urinalProducts.includes(productName)) backCat = "urinal";
     back.href = `brand-daelim.html?cat=${backCat}`;
     back.innerHTML = `<span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO DAELIM`;
+  } else if (formatKey === "kyerim") {
+    const basinProducts = ["L-345UF", "L-206UF", "L-208UF", "L-322UF", "L-325UF", "L-322UFD", "L-317ULF", "L-344UF", "L-329UF"];
+    const backCat = basinProducts.includes(productName) ? "basin" : "toilet";
+    back.href = `brand-kyerim.html?cat=${backCat}`;
+    back.innerHTML = `<span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO KYERIM`;
   } else if (formatKey) {
     back.href = `catalog.html?format=${encodeURIComponent(formatKey)}`;
     back.innerHTML = `<span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO CATALOGUE`;

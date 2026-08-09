@@ -47,4 +47,30 @@ document.addEventListener("DOMContentLoaded", () => {
       history.pushState(null, "", `#${id}`);
     });
   });
+
+  const galleryTrigger = document.getElementById("photo-gallery-trigger");
+  const galleryMenu = document.getElementById("gallery-menu");
+
+  const openGalleryMenu = () => {
+    if (!galleryMenu) return;
+    galleryMenu.hidden = false;
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeGalleryMenu = () => {
+    if (!galleryMenu) return;
+    galleryMenu.hidden = true;
+    document.body.style.overflow = "";
+  };
+
+  galleryTrigger?.addEventListener("click", openGalleryMenu);
+  galleryMenu?.querySelectorAll("[data-gallery-close]").forEach((el) => {
+    el.addEventListener("click", closeGalleryMenu);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && galleryMenu && !galleryMenu.hidden) {
+      closeGalleryMenu();
+    }
+  });
 });

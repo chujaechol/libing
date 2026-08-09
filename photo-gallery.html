@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gallery — DS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=14" />
+</head>
+<body>
+  <nav class="top-nav is-scrolled" id="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html" aria-label="DS">
+        <span class="logo__letter">D</span><span class="logo__sep" aria-hidden="true"></span><span class="logo__letter">S</span>
+      </a>
+      <div class="top-nav__links">
+        <a class="nav-link" href="index.html">Collections</a>
+        <a class="nav-link" href="material-list.html">Materials</a>
+        <a class="nav-link is-active" href="index.html#collections">Showroom</a>
+        <a class="nav-link" href="index.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="gallery-page">
+      <div class="gallery-page__inner">
+        <a class="gallery-page__back" href="index.html#collections">
+          <span class="material-symbols-outlined">arrow_back</span>
+          Back to Collections
+        </a>
+
+        <div class="gallery-page__header">
+          <span class="eyebrow">Collection 04</span>
+          <h1>Photo Gallery</h1>
+          <p>Select a category</p>
+        </div>
+
+        <nav class="gallery-list" aria-label="Gallery categories">
+          <a class="gallery-list__item" href="gallery-300x600.html">
+            <span class="gallery-list__icon" aria-hidden="true">
+              <span class="material-symbols-outlined">crop_portrait</span>
+            </span>
+            <span class="gallery-list__num">01</span>
+            <span class="gallery-list__title">300 × 600 Gallery</span>
+            <span class="gallery-list__meta">Format</span>
+          </a>
+          <a class="gallery-list__item" href="gallery-600x600.html">
+            <span class="gallery-list__icon" aria-hidden="true">
+              <span class="material-symbols-outlined">crop_square</span>
+            </span>
+            <span class="gallery-list__num">02</span>
+            <span class="gallery-list__title">600 × 600 Gallery</span>
+            <span class="gallery-list__meta">Format</span>
+          </a>
+          <a class="gallery-list__item" href="photo-gallery.html?cat=600x1200">
+            <span class="gallery-list__icon" aria-hidden="true">
+              <span class="material-symbols-outlined">width_normal</span>
+            </span>
+            <span class="gallery-list__num">03</span>
+            <span class="gallery-list__title">600 × 1200 Gallery</span>
+            <span class="gallery-list__meta">Format</span>
+          </a>
+          <a class="gallery-list__item" href="gallery-kitchen.html">
+            <span class="gallery-list__icon" aria-hidden="true">
+              <span class="material-symbols-outlined">countertops</span>
+            </span>
+            <span class="gallery-list__num">04</span>
+            <span class="gallery-list__title">주방 Gallery</span>
+            <span class="gallery-list__meta">Kitchen</span>
+          </a>
+          <a class="gallery-list__item" href="photo-gallery.html?cat=entrance">
+            <span class="gallery-list__icon" aria-hidden="true">
+              <span class="material-symbols-outlined">door_front</span>
+            </span>
+            <span class="gallery-list__num">05</span>
+            <span class="gallery-list__title">현관 Gallery</span>
+            <span class="gallery-list__meta">Entrance</span>
+          </a>
+        </nav>
+
+        <div id="gallery-empty" class="gallery-page__empty" hidden>
+          <p class="gallery-page__empty-title">준비 중</p>
+          <p>해당 갤러리 이미지를 곧 업데이트할 예정입니다.</p>
+          <a class="btn btn--dark" href="photo-gallery.html">모든 카테고리</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cat = new URLSearchParams(window.location.search).get("cat");
+      const labels = {
+        "600x1200": "600 × 1200 Gallery",
+        kitchen: "주방 Gallery",
+        entrance: "현관 Gallery",
+      };
+      const subtitles = {
+        "600x1200": "Format 600 × 1200 mm",
+        kitchen: "Kitchen installation gallery",
+        entrance: "Entrance installation gallery",
+      };
+
+      if (!cat || !labels[cat]) return;
+
+      document.title = `${labels[cat]} — DS`;
+      document.querySelector(".gallery-page__header h1").textContent = labels[cat];
+      document.querySelector(".gallery-page__header p").textContent = subtitles[cat] || "";
+      document.querySelector(".gallery-list").hidden = true;
+      document.getElementById("gallery-empty").hidden = false;
+
+      const back = document.querySelector(".gallery-page__back");
+      if (back) {
+        back.href = "photo-gallery.html";
+        back.innerHTML = '<span class="material-symbols-outlined">arrow_back</span> Back to Categories';
+      }
+    });
+  </script>
+</body>
+</html>

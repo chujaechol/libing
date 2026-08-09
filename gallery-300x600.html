@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>300 × 600 Gallery — DS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=18" />
+</head>
+<body>
+  <nav class="top-nav is-scrolled" id="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html" aria-label="DS">
+        <span class="logo__letter">D</span><span class="logo__sep" aria-hidden="true"></span><span class="logo__letter">S</span>
+      </a>
+      <div class="top-nav__links">
+        <a class="nav-link" href="index.html">Collections</a>
+        <a class="nav-link" href="material-list.html">Materials</a>
+        <a class="nav-link is-active" href="index.html#collections">Showroom</a>
+        <a class="nav-link" href="index.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="gallery-page">
+      <div class="gallery-page__inner gallery-page__inner--wide">
+        <a class="gallery-page__back" href="photo-gallery.html">
+          <span class="material-symbols-outlined">arrow_back</span>
+          Back to Categories
+        </a>
+
+        <div class="gallery-page__header">
+          <span class="eyebrow">Collection 04</span>
+          <h1>300 × 600 Gallery</h1>
+          <p>Format 1 — 10</p>
+        </div>
+
+        <div class="gallery-formats" id="gallery-formats"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const formats = [
+        {
+          n: 1,
+          src: "assets/gallery/300x600/01.png",
+          alt: "300 × 600 Format 1 — 베이지 스톤 타일 욕실 시공",
+        },
+        {
+          n: 2,
+          src: "assets/gallery/300x600/02.png",
+          alt: "300 × 600 Format 2 — V-라바2 욕실 시공",
+          href: "product.html?format=300x600&product=" + encodeURIComponent("V-라바2") + "&from=gallery",
+        },
+        { n: 3 },
+        { n: 4 },
+        { n: 5 },
+        { n: 6 },
+        { n: 7 },
+        { n: 8 },
+        { n: 9 },
+        { n: 10 },
+      ];
+
+      const root = document.getElementById("gallery-formats");
+      root.innerHTML = formats
+        .map((item) => {
+          const label = `Format ${item.n}`;
+          const num = String(item.n).padStart(2, "0");
+          if (item.src && item.href) {
+            return `
+              <a class="gallery-format gallery-format--link" href="${item.href}">
+                <div class="gallery-format__media">
+                  <img src="${item.src}" alt="${item.alt}" />
+                </div>
+                <div class="gallery-format__caption">
+                  <span class="gallery-format__num">${num}</span>
+                  <span class="gallery-format__label">${label}</span>
+                  <span class="gallery-format__action">상세 보기</span>
+                </div>
+              </a>`;
+          }
+          if (item.src) {
+            return `
+              <figure class="gallery-format">
+                <div class="gallery-format__media">
+                  <img src="${item.src}" alt="${item.alt || label}" />
+                </div>
+                <figcaption class="gallery-format__caption">
+                  <span class="gallery-format__num">${num}</span>
+                  <span class="gallery-format__label">${label}</span>
+                </figcaption>
+              </figure>`;
+          }
+          return `
+            <figure class="gallery-format gallery-format--empty">
+              <div class="gallery-format__media" aria-hidden="true"></div>
+              <figcaption class="gallery-format__caption">
+                <span class="gallery-format__num">${num}</span>
+                <span class="gallery-format__label">${label}</span>
+              </figcaption>
+            </figure>`;
+        })
+        .join("");
+    });
+  </script>
+</body>
+</html>

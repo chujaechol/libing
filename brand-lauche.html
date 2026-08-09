@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>라우체 (LAUCHE) — DS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#000000",
+            "on-primary": "#ffffff",
+            secondary: "#775a19",
+            surface: "#f9f9f9",
+            "on-surface": "#1a1c1c",
+            "on-surface-variant": "#434747",
+            "surface-container": "#eeeeee",
+            "surface-container-low": "#f4f3f3",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#c4c7c7",
+            "on-tertiary-container": "#838483",
+          },
+          spacing: {
+            gutter: "24px",
+            "margin-mobile": "20px",
+            "section-gap": "128px",
+            "margin-desktop": "64px",
+          },
+          maxWidth: { "container-max": "1440px" },
+          fontFamily: {
+            "label-caps": ["DM Sans", "sans-serif"],
+            "headline-sm": ["Libre Caslon Text", "serif"],
+            "headline-md": ["Libre Caslon Text", "serif"],
+            "display-lg": ["Libre Caslon Text", "serif"],
+            "body-md": ["DM Sans", "sans-serif"],
+          },
+          fontSize: {
+            "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "500" }],
+            "headline-sm": ["24px", { lineHeight: "1.4", fontWeight: "400" }],
+            "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "400" }],
+            "display-lg": ["40px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+          },
+          borderRadius: { DEFAULT: "0px", full: "0px" },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+  <header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30">
+    <div class="h-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img alt="DS" class="h-8 w-auto object-contain" src="assets/logo.png" />
+        <span class="font-label-caps text-label-caps tracking-widest hidden sm:inline">ARCHITECTURAL SURFACES</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-10">
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="index.html">COLLECTIONS</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="materials.html">MATERIALS</a>
+        <a class="font-label-caps text-label-caps text-primary font-bold" href="auxiliary.html">SHOWROOM</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="index.html#contact">CONTACT</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden" type="button" aria-label="Menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+    <div id="mobile-nav" class="hidden md:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-6 flex flex-col gap-4">
+      <a href="index.html">COLLECTIONS</a>
+      <a href="materials.html">MATERIALS</a>
+      <a href="auxiliary.html">SHOWROOM</a>
+    </div>
+  </header>
+
+  <main class="w-full pt-20">
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20">
+      <a id="lauche-back" href="auxiliary.html#brands" class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface mb-10">
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+        <span id="lauche-back-label">BACK TO BRANDS</span>
+      </a>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-outline-variant pb-8">
+        <div>
+          <span class="font-label-caps text-label-caps text-secondary mb-3 block">PARTNER BRAND</span>
+          <h1 class="font-display-lg text-on-surface">라우체 (LAUCHE)</h1>
+          <p id="lauche-subtitle" class="font-body-md text-on-surface-variant mt-3">Select a category</p>
+        </div>
+      </div>
+
+      <div id="lauche-categories" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+        <a href="brand-lauche.html?cat=toilet" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 01</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">wc</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">양변기</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Toilet</p>
+          </div>
+        </a>
+
+        <a href="brand-lauche.html?cat=basin" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 02</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">countertops</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">세면기</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Basin</p>
+          </div>
+        </a>
+
+        <a href="brand-lauche.html?cat=faucet" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 03</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">water_drop</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">수전</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Faucet</p>
+          </div>
+        </a>
+
+        <a href="brand-lauche.html?cat=bidet" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 04</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">bathtub</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">일체형비데</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Bidet</p>
+          </div>
+        </a>
+
+        <a href="brand-lauche.html?cat=urinal" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">CATEGORY 05</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="flex-1 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors">man</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">소변기</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Urinal</p>
+          </div>
+        </a>
+      </div>
+
+      <div id="lauche-products" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+        <a href="product.html?format=lauche&product=LC-3200" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">01</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/lc-3200.png" alt="라우체 LC-3200" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 포레</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LC-3200</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">원피스 · 395×690×580</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LC-3100" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">02</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/lc-3100.png" alt="라우체 LC-3100" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 아크</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LC-3100</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">원피스 · 395×690×580</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LC-2200" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">03</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/lc-2200.png" alt="라우체 LC-2200" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 포레</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LC-2200</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">투피스 · 395×690×670</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LC-2100" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">04</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/lc-2100.png" alt="라우체 LC-2100" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 아크</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LC-2100</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">투피스 · 395×690×700</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LC-3500" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="toilet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">05</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/lc-3500.png" alt="라우체 LC-3500" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 플로</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LC-3500</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">직수형 · 400×680×450</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LC-500S" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="bidet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">01</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/lc-500s.png" alt="라우체 LC-500S" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 디오</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LC-500S</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">비데일체형 · 395×666×517</p>
+          </div>
+        </a>
+
+        <a href="product.html?format=lauche&product=LL-822" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">01</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-822.png" alt="라우체 LL-822" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 루나</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-822</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">벽걸이 · 415×400×375</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-821" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">02</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-821.png" alt="라우체 LL-821" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 마스</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-821</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">벽걸이 · 485×425×390</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-823" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">03</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-823.png" alt="라우체 LL-823" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 큐브</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-823</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">벽걸이 · 400×420×415</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-813" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">04</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-813.png" alt="라우체 LL-813" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 오즈</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-813</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">수건걸이 · 430×390×135</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-813M" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">05</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-813m.png" alt="라우체 LL-813M" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 오즈</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-813M</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">수건걸이 · 무광</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-811" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">06</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-811.png" alt="라우체 LL-811" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코니</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-811</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">수건걸이 · 510×355×130</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-811M" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">07</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-811m.png" alt="라우체 LL-811M" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코니</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-811M</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">수건걸이 · 무광</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-812" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">08</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-812.png" alt="라우체 LL-812" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 새니</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-812</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">수건걸이 · 500×400×150</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-812M" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">09</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-812m.png" alt="라우체 LL-812M" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 새니</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-812M</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">수건걸이 · 무광</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-803M" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">10</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-803m.png" alt="라우체 LL-803M" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 티니</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-803M</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">반다리 · 420×420×400</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-802M" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">11</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-802m.png" alt="라우체 LL-802M" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 위니</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-802M</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">반다리 · 450×420×380</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=LL-801M" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="basin">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">12</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/ll-801m.png" alt="라우체 LL-801M" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 지니</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">LL-801M</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">반다리 · 450×420×400</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=MYSTIC-2127" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">01</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/mystic-2127.png" alt="라우체 MYSTIC-2127" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 미스틱</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">MYSTIC-2127</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 벽매립형</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN-1075" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">02</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin-1075.png" alt="라우체 COIN-1075" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN-1075</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 대붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN-1275" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">03</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin-1275.png" alt="라우체 COIN-1275" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN-1275</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 대붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN-2375" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">04</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin-2375.png" alt="라우체 COIN-2375" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN-2375</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 벽매립형</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN-2005" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">05</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin-2005.png" alt="라우체 COIN-2005" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN-2005</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 대붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=NEWCOIN-2008L" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">06</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/newcoin-2008l.png" alt="라우체 NEWCOIN-2008L" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 뉴코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">NEWCOIN-2008L</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 대붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=NEWCOIN-2008S" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">07</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/newcoin-2008s.png" alt="라우체 NEWCOIN-2008S" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 뉴코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">NEWCOIN-2008S</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 대붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=NEWCOIN-2338" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">08</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/newcoin-2338.png" alt="라우체 NEWCOIN-2338" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 뉴코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">NEWCOIN-2338</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 벽매립형</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=MYSTIC-1027" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">09</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/mystic-1027.png" alt="라우체 MYSTIC-1027" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 미스틱</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">MYSTIC-1027</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 대붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=MYSTIC-1227" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">10</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/mystic-1227.png" alt="라우체 MYSTIC-1227" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 미스틱</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">MYSTIC-1227</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 대붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=NEWMYSTIC-1037" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">11</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/newmystic-1037.png" alt="라우체 NEWMYSTIC-1037" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 뉴미스틱</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">NEWMYSTIC-1037</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 대붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=PINION-1017" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">12</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/pinion-1017.png" alt="라우체 PINION-1017" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 피니언</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">PINION-1017</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">세면 · 대붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN-3075" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">13</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin-3075.png" alt="라우체 COIN-3075" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN-3075</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 벽붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN-7075" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">14</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin-7075.png" alt="라우체 COIN-7075" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN-7075</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 벽매립형</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN-2775" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">15</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin-2775.png" alt="라우체 COIN-2775" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN-2775</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 벽매립형</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN-8115" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">16</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin-8115.png" alt="라우체 COIN-8115" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN-8115</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 벽붙이</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=NEWCOIN-7078" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">17</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/newcoin-7078.png" alt="라우체 NEWCOIN-7078" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 뉴코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">NEWCOIN-7078</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 벽매립형</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=NEWCOIN-2778" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">18</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/newcoin-2778.png" alt="라우체 NEWCOIN-2778" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 뉴코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">NEWCOIN-2778</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 벽매립형</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=NEWCOIN-7338" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">19</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/newcoin-7338.png" alt="라우체 NEWCOIN-7338" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 뉴코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">NEWCOIN-7338</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 벽매립형</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN-7115" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">20</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin-7115.png" alt="라우체 COIN-7115" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN-7115</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 벽매립형</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN-7375" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">21</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin-7375.png" alt="라우체 COIN-7375" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN-7375</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 벽매립형</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=PIATTO-S50N-300" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">22</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/piatto-s50n-300.png" alt="라우체 PIATTO-S50N-300" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 피아또</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">PIATTO-S50N-300</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 레인헤드</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=NEWCOIN-S40N-350" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">23</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/newcoin-s40n-350.png" alt="라우체 NEWCOIN-S40N-350" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 뉴코인</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">NEWCOIN-S40N-350</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 레인헤드</p>
+          </div>
+        </a>
+        <a href="product.html?format=lauche&product=COIN2-S30N-600" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container transition-colors" data-cat="faucet">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">24</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="relative flex justify-center items-center py-6 flex-1">
+            <img src="assets/products/lauche/coin2-s30n-600.png" alt="라우체 COIN2-S30N-600" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">라우체 · 코인2</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">COIN2-S30N-600</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">샤워 · 레인헤드</p>
+          </div>
+        </a>
+      </div>
+
+      <div id="lauche-empty" class="hidden py-24 text-center">
+        <p class="font-headline-sm text-headline-sm text-on-surface mb-3">준비 중</p>
+        <p class="font-body-md text-on-surface-variant">해당 카테고리 제품을 곧 업데이트할 예정입니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full bg-surface-container-low border-t border-outline-variant/30 py-16 mt-20">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between gap-10">
+      <div>
+        <p class="font-label-caps text-label-caps tracking-widest mb-4">DS ARCHITECTURAL SURFACES</p>
+        <p class="font-body-md text-on-surface-variant max-w-sm">엄선된 파트너 브랜드와 함께 완성하는 욕실 공간.</p>
+      </div>
+      <p class="font-label-caps text-label-caps text-on-tertiary-container self-end">© 2024 DS ARCHITECTURAL SURFACES</p>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cat = new URLSearchParams(window.location.search).get("cat");
+      const categories = document.getElementById("lauche-categories");
+      const products = document.getElementById("lauche-products");
+      const empty = document.getElementById("lauche-empty");
+      const subtitle = document.getElementById("lauche-subtitle");
+      const back = document.getElementById("lauche-back");
+      const backLabel = document.getElementById("lauche-back-label");
+
+      const labels = {
+        toilet: "양변기",
+        basin: "세면기",
+        faucet: "수전",
+        bidet: "일체형비데",
+        urinal: "소변기",
+      };
+
+      if (!cat) return;
+
+      categories.classList.add("hidden");
+      back.href = "brand-lauche.html";
+      backLabel.textContent = "BACK TO CATEGORIES";
+      subtitle.textContent = labels[cat] || "Category";
+
+      const matched = products.querySelectorAll(`[data-cat="${cat}"]`);
+      if (matched.length) {
+        products.classList.remove("hidden");
+        products.querySelectorAll("[data-cat]").forEach((card) => {
+          card.classList.toggle("hidden", card.dataset.cat !== cat);
+        });
+      } else {
+        empty.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+</html>

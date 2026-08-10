@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사이트 맵 — DS HTML 페이지 안내</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=27" />
+  <style>
+    .sitemap {
+      --gap: 28px;
+      padding: 120px var(--margin-mobile) 80px;
+    }
+    @media (min-width: 900px) {
+      .sitemap { padding-left: var(--margin-desktop); padding-right: var(--margin-desktop); }
+    }
+    .sitemap__inner { max-width: 980px; margin: 0 auto; }
+    .sitemap__lead {
+      max-width: 40rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 40px;
+    }
+    .sitemap__note {
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 18px 20px;
+      margin-bottom: 48px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .sitemap__note strong { color: var(--on-surface); }
+    .sitemap__section { margin-bottom: 48px; }
+    .sitemap__section h2 {
+      font-family: "Libre Caslon Text", serif;
+      font-weight: 400;
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+    .sitemap__section .sub {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .sitemap-flow {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 28px;
+      padding: 0;
+      list-style: none;
+    }
+    .sitemap-flow li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .sitemap-flow .step {
+      flex: 0 0 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      background: var(--charcoal);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+    }
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 720px) {
+      .sitemap-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .sitemap-card {
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 18px 18px 16px;
+      transition: border-color 0.25s var(--ease-soft), transform 0.25s var(--ease-soft);
+    }
+    .sitemap-card:hover {
+      border-color: var(--charcoal);
+      transform: translateY(-2px);
+    }
+    .sitemap-card__file {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .sitemap-card__title {
+      font-family: "Libre Caslon Text", serif;
+      font-size: 20px;
+      margin: 0 0 8px;
+    }
+    .sitemap-card__desc {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .sitemap-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 14px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav is-scrolled" id="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html" aria-label="DS">
+        <span class="logo__letter">D</span><span class="logo__sep" aria-hidden="true"></span><span class="logo__letter">S</span>
+      </a>
+      <div class="top-nav__links">
+        <a class="nav-link" href="index.html">Collections</a>
+        <a class="nav-link" href="materials.html">Materials</a>
+        <a class="nav-link is-active" href="site-map.html">Site Map</a>
+        <a class="nav-link" href="mosaic-categories.html">Mosaic</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="sitemap">
+    <div class="sitemap__inner">
+      <div class="gallery-page__header" style="margin-bottom: 24px;">
+        <span class="eyebrow">DS · HTML GUIDE</span>
+        <h1>사이트 맵</h1>
+        <p>모든 HTML 페이지를 정리했습니다. 카드를 누르면 해당 화면으로 이동합니다.</p>
+      </div>
+
+      <p class="sitemap__lead">
+        GitHub 저장소에서 <code>*.html</code>을 클릭하면 코드만 보입니다.
+        웹사이트처럼 보려면 이 페이지를 <strong>GitHub Pages</strong> 또는 로컬 서버로 열어 주세요.
+      </p>
+
+      <div class="sitemap__note">
+        <strong>빠른 시작</strong><br />
+        1) 홈: <a href="index.html">index.html</a><br />
+        2) Material List: <a href="materials.html">materials.html</a><br />
+        3) 모짜이크: <a href="mosaic-categories.html">mosaic-categories.html</a><br />
+        4) Pages 주소 예: <code>https://chujaechol.github.io/libing/</code>
+      </div>
+
+      <section class="sitemap__section">
+        <h2>추천 동선</h2>
+        <p class="sub">모짜이크 상세까지 가는 경로</p>
+        <ol class="sitemap-flow">
+          <li>
+            <span class="step">01</span>
+            <div><a href="index.html">index.html</a> → Material List 카드</div>
+          </li>
+          <li>
+            <span class="step">02</span>
+            <div><a href="materials.html">materials.html</a> → Point(200×1200) 선택</div>
+          </li>
+          <li>
+            <span class="step">03</span>
+            <div><a href="catalog.html?format=200x1200">catalog.html?format=200x1200</a> → 모짜이크</div>
+          </li>
+          <li>
+            <span class="step">04</span>
+            <div><a href="mosaic-categories.html">mosaic-categories.html</a> → 정각/직사각/육각/원형/모양</div>
+          </li>
+          <li>
+            <span class="step">05</span>
+            <div><a href="mosaic-gallery.html?cat=rect">mosaic-gallery.html?cat=rect</a> → 규격 → 제품 → 상세</div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="sitemap__section">
+        <h2>메인</h2>
+        <p class="sub">홈 · 안내</p>
+        <div class="sitemap-grid">
+          <a class="sitemap-card" href="index.html">
+            <div class="sitemap-card__file">index.html</div>
+            <h3 class="sitemap-card__title">홈 / Collections</h3>
+            <p class="sitemap-card__desc">브랜드 히어로와 Material List, Photo Gallery, Auxiliary 진입 카드</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="site-map.html">
+            <div class="sitemap-card__file">site-map.html</div>
+            <h3 class="sitemap-card__title">사이트 맵 (현재)</h3>
+            <p class="sitemap-card__desc">전체 HTML 목록과 동선 안내</p>
+            <span class="sitemap-card__cta">현재 페이지</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="sitemap__section">
+        <h2>Material List · 카탈로그 · 상세</h2>
+        <p class="sub">규격 선택 → 제품 목록 → 상세 페이지</p>
+        <div class="sitemap-grid">
+          <a class="sitemap-card" href="materials.html">
+            <div class="sitemap-card__file">materials.html</div>
+            <h3 class="sitemap-card__title">Material List</h3>
+            <p class="sitemap-card__desc">타일 규격(600×600, Point 등) 선택 화면</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="catalog.html?format=600x600">
+            <div class="sitemap-card__file">catalog.html</div>
+            <h3 class="sitemap-card__title">제품 카탈로그</h3>
+            <p class="sitemap-card__desc">예: 600×600 카탈로그. URL에 format 파라미터 사용</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="catalog.html?format=200x1200">
+            <div class="sitemap-card__file">catalog.html?format=200x1200</div>
+            <h3 class="sitemap-card__title">Point 카탈로그</h3>
+            <p class="sitemap-card__desc">모짜이크 진입 포함 Point 라인</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="product.html?format=200x1200&product=Point-02">
+            <div class="sitemap-card__file">product.html</div>
+            <h3 class="sitemap-card__title">제품 상세 예시</h3>
+            <p class="sitemap-card__desc">format + product 쿼리로 상세 렌더 (스펙·갤러리·관련 제품)</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="sitemap__section">
+        <h2>모짜이크</h2>
+        <p class="sub">카테고리 → 갤러리 → 상세 (483+ 제품)</p>
+        <div class="sitemap-grid">
+          <a class="sitemap-card" href="mosaic-categories.html">
+            <div class="sitemap-card__file">mosaic-categories.html</div>
+            <h3 class="sitemap-card__title">모짜이크 카테고리</h3>
+            <p class="sitemap-card__desc">정각 · 직사각 · 육각 · 원형 · 모양</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="mosaic-gallery.html?cat=square">
+            <div class="sitemap-card__file">?cat=square</div>
+            <h3 class="sitemap-card__title">정각 갤러리</h3>
+            <p class="sitemap-card__desc">정사각 모자이크 전체 목록</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="mosaic-gallery.html?cat=rect">
+            <div class="sitemap-card__file">?cat=rect</div>
+            <h3 class="sitemap-card__title">직사각 규격 목록</h3>
+            <p class="sitemap-card__desc">20×225 ~ 75×300 등 규격 선택 후 제품</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="mosaic-gallery.html?cat=rect&size=45x145">
+            <div class="sitemap-card__file">?cat=rect&amp;size=45x145</div>
+            <h3 class="sitemap-card__title">45×145 제품</h3>
+            <p class="sitemap-card__desc">직사각 45×145 mm 전체 제품 + 상세 연결</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="mosaic-gallery.html?cat=hex">
+            <div class="sitemap-card__file">?cat=hex</div>
+            <h3 class="sitemap-card__title">육각 갤러리</h3>
+            <p class="sitemap-card__desc">육각 모자이크 목록</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="mosaic-gallery.html?cat=circle">
+            <div class="sitemap-card__file">?cat=circle</div>
+            <h3 class="sitemap-card__title">원형 갤러리</h3>
+            <p class="sitemap-card__desc">원형 모자이크 목록</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="mosaic-gallery.html?cat=pattern">
+            <div class="sitemap-card__file">?cat=pattern</div>
+            <h3 class="sitemap-card__title">모양 갤러리</h3>
+            <p class="sitemap-card__desc">패턴·특수 형태 모자이크</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="product.html?format=mosaic&product=SI%20TIRAMISU45145&from=mosaic&back=cat%3Drect%26size%3D45x145">
+            <div class="sitemap-card__file">product.html?format=mosaic</div>
+            <h3 class="sitemap-card__title">모짜이크 상세 예시</h3>
+            <p class="sitemap-card__desc">SI TIRAMISU45145 — 스펙·팁·관련 제품</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="sitemap__section">
+        <h2>Photo Gallery</h2>
+        <p class="sub">시공·공간 이미지 갤러리</p>
+        <div class="sitemap-grid">
+          <a class="sitemap-card" href="photo-gallery.html">
+            <div class="sitemap-card__file">photo-gallery.html</div>
+            <h3 class="sitemap-card__title">Photo Gallery 허브</h3>
+            <p class="sitemap-card__desc">Kitchen / 600×600 / 300×600 진입</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="gallery-kitchen.html">
+            <div class="sitemap-card__file">gallery-kitchen.html</div>
+            <h3 class="sitemap-card__title">Kitchen Gallery</h3>
+            <p class="sitemap-card__desc">키친 포맷 갤러리</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="gallery-600x600.html">
+            <div class="sitemap-card__file">gallery-600x600.html</div>
+            <h3 class="sitemap-card__title">600×600 Gallery</h3>
+            <p class="sitemap-card__desc">600×600 갤러리</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="gallery-300x600.html">
+            <div class="sitemap-card__file">gallery-300x600.html</div>
+            <h3 class="sitemap-card__title">300×600 Gallery</h3>
+            <p class="sitemap-card__desc">300×600 갤러리</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="sitemap__section">
+        <h2>브랜드 · 보조</h2>
+        <p class="sub">수전·도기 브랜드 카탈로그</p>
+        <div class="sitemap-grid">
+          <a class="sitemap-card" href="auxiliary.html">
+            <div class="sitemap-card__file">auxiliary.html</div>
+            <h3 class="sitemap-card__title">Auxiliary</h3>
+            <p class="sitemap-card__desc">보조 자재 / 브랜드 진입</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="brand-daelim.html">
+            <div class="sitemap-card__file">brand-daelim.html</div>
+            <h3 class="sitemap-card__title">대림 (Daelim)</h3>
+            <p class="sitemap-card__desc">양변기·세면·수전 등</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="brand-kyerim.html">
+            <div class="sitemap-card__file">brand-kyerim.html</div>
+            <h3 class="sitemap-card__title">계림 (Kyerim)</h3>
+            <p class="sitemap-card__desc">계림 브랜드 카탈로그</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+          <a class="sitemap-card" href="brand-lauche.html">
+            <div class="sitemap-card__file">brand-lauche.html</div>
+            <h3 class="sitemap-card__title">라우체 (Lauche)</h3>
+            <p class="sitemap-card__desc">라우체 브랜드 카탈로그</p>
+            <span class="sitemap-card__cta">열기 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

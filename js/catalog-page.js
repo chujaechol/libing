@@ -56,9 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const originLabel = product.origin
         ? `<span class="absolute bottom-3 right-3 font-label-caps text-[10px] tracking-[0.14em] uppercase text-on-surface-variant/80">${product.origin}</span>`
         : "";
+      const href =
+        product.href ||
+        `product.html?format=${encodeURIComponent(formatKey)}&product=${encodeURIComponent(product.name)}`;
       return `
       <li>
-        <a href="product.html?format=${encodeURIComponent(formatKey)}&product=${encodeURIComponent(product.name)}"
+        <a href="${href}"
            class="group block bg-surface-container-lowest border border-outline-variant/30 hover:border-primary transition-colors">
           <div class="format-tile-stage relative flex justify-center items-center py-14 bg-surface-container-low">
             <div class="format-tile ${shape}" style="background-image: url('${product.image}')" role="img" aria-label="${product.name}"></div>

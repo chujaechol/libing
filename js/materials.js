@@ -20,6 +20,8 @@ const TILE_IMAGE = {
   "300x300": "assets/tile-300x300.png",
   "400x400": "assets/tile-400x400.png",
   "1200x1200": "assets/tile-1200x1200.png",
+  "900x900": "assets/tile-1200x1200.png",
+  "200x1200": "assets/tile-800x1600.png",
 };
 
 document.addEventListener("DOMContentLoaded", () => {

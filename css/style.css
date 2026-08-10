@@ -1059,7 +1059,8 @@ input {
   height: auto;
   display: block;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+  object-fit: contain;
+  background: #f3f1ed;
   transition: transform 0.6s var(--ease-soft);
 }
 

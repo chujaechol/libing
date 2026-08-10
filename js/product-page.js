@@ -37,6 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
   } else if (formatKey === "600x600") {
     back.href = "gallery-600x600.html";
     back.innerHTML = `<span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO GALLERY`;
+  } else if (formatKey === "mosaic") {
+    const mosaicBack = params.get("back") || "cat=square";
+    back.href = `mosaic-gallery.html?${mosaicBack}`;
+    back.innerHTML = `<span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO MOSAIC`;
   } else if (formatKey) {
     back.href = `catalog.html?format=${encodeURIComponent(formatKey)}`;
     back.innerHTML = `<span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO CATALOGUE`;
@@ -55,6 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const detail = DS_CATALOG.detailFor(product);
   document.title = `${detail.title} — DS`;
 
+  // Prefer detail-defined mosaic back path when available
+  if (formatKey === "mosaic" && detail.mosaicBack && back) {
+    back.href = `mosaic-gallery.html?${detail.mosaicBack}`;
+  }
+
   const fromParam = params.get("from");
   const useShowcase =
     detail.layout === "showcase" &&
@@ -66,7 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.getElementById("product-title").textContent = detail.title;
-  document.getElementById("product-desc").textContent = detail.description;
+  const descEl = document.getElementById("product-desc");
+  descEl.textContent = detail.description || "";
+  descEl.style.whiteSpace = detail.description?.includes("\n") ? "pre-line" : "";
+
   const productImage = document.getElementById("product-image");
   productImage.src = detail.image;
   productImage.alt = detail.title;
@@ -80,6 +92,12 @@ document.addEventListener("DOMContentLoaded", () => {
   detailImage.src = detail.image;
   detailImage.alt = detail.title;
 
+  const characterTitle = document.getElementById("product-character-title");
+  if (characterTitle) {
+    characterTitle.textContent =
+      detail.layoutHint === "mosaic" ? "모짜이크 캐릭터" : "Precision in Imperfection";
+  }
+
   document.getElementById("product-character").textContent =
     detail.character ||
     `Each slab of ${detail.title} undergoes a rigorous calibration process. The surface is treated with a proprietary anti-reflective coating that maintains raw color integrity while providing superior slip resistance (R10) and scratch protection.`;
@@ -91,6 +109,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const officialSection = document.getElementById("product-official-detail");
   const detailImagesEl = document.getElementById("product-detail-images");
   const sourceLink = document.getElementById("product-source-link");
+  const highlightsSection = document.getElementById("product-highlights-section");
+  const highlightsEl = document.getElementById("product-highlights");
+  const tipsEl = document.getElementById("product-tips");
+  const relatedSection = document.getElementById("product-related-section");
+  const relatedEl = document.getElementById("product-related");
+  const galleryHeading = document.getElementById("product-gallery-heading");
+
+  if (detail.highlights?.length && highlightsSection && highlightsEl) {
+    highlightsSection.classList.remove("hidden");
+    highlightsEl.innerHTML = detail.highlights
+      .map(
+        (h) => `
+      <div class="flex flex-col gap-3">
+        <span class="material-symbols-outlined text-primary text-[28px]">${h.icon || "check"}</span>
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">${h.title}</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">${h.text}</p>
+      </div>`
+      )
+      .join("");
+  } else if (highlightsSection) {
+    highlightsSection.classList.add("hidden");
+  }
+
+  if (detail.tips?.length && tipsEl) {
+    tipsEl.classList.remove("hidden");
+    tipsEl.innerHTML = `
+      <span class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-tighter">시공 · 관리 팁</span>
+      <ul class="flex flex-col gap-2">
+        ${detail.tips
+          .map(
+            (tip) => `
+          <li class="font-body-md text-[14px] text-on-surface-variant leading-relaxed flex gap-2">
+            <span class="text-secondary mt-[2px]">•</span>
+            <span>${tip}</span>
+          </li>`
+          )
+          .join("")}
+      </ul>`;
+  } else if (tipsEl) {
+    tipsEl.classList.add("hidden");
+    tipsEl.innerHTML = "";
+  }
 
   if (detail.detailImages?.length) {
     characterSection?.classList.add("hidden");
@@ -123,27 +183,50 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("product-specs").innerHTML = Object.entries(detail.specs)
     .map(
       ([label, value]) => `
-      <div class="flex justify-between items-end border-b border-outline-variant/10 pb-2">
-        <span class="font-body-md text-on-surface-variant">${label}</span>
-        <span class="font-headline-sm text-on-surface">${value}</span>
+      <div class="flex justify-between items-end border-b border-outline-variant/10 pb-2 gap-4">
+        <span class="font-body-md text-on-surface-variant shrink-0">${label}</span>
+        <span class="font-headline-sm text-on-surface text-right">${value}</span>
       </div>
     `
     )
     .join("");
 
   const track = document.getElementById("preview-track");
+  const galleryFit = detail.imageFit === "contain" ? "object-contain bg-surface-container-lowest" : "object-cover";
+  if (galleryHeading) {
+    galleryHeading.hidden = !(detail.layoutHint === "mosaic" || detail.related?.length);
+  }
   if (track) {
     track.innerHTML = (detail.gallery || [])
       .map(
         (src, i) => `
       <div class="min-w-[80vw] md:min-w-[45%] flex-shrink-0">
         <div class="aspect-video bg-surface-container relative overflow-hidden">
-          <img class="w-full h-full object-cover" src="${src}" alt="Installation preview ${i + 1}" />
+          <img class="w-full h-full ${galleryFit}" src="${src}" alt="Installation preview ${i + 1}" />
         </div>
       </div>
     `
       )
       .join("");
+  }
+
+  if (detail.related?.length && relatedSection && relatedEl) {
+    relatedSection.classList.remove("hidden");
+    relatedEl.innerHTML = detail.related
+      .map(
+        (item) => `
+      <a href="${item.href}" class="group block">
+        <div class="aspect-square bg-surface-container overflow-hidden mb-3">
+          <img src="${item.image}" alt="${item.name}" class="w-full h-full object-contain bg-surface-container-lowest transition-transform duration-500 group-hover:scale-105" />
+        </div>
+        <p class="font-label-caps text-[11px] tracking-widest text-on-surface-variant mb-1">DS TILE</p>
+        <h3 class="font-headline-sm text-[18px] text-on-surface group-hover:text-secondary transition-colors">${item.name}</h3>
+        <p class="font-label-caps text-[10px] tracking-widest text-secondary mt-2 opacity-0 group-hover:opacity-100 transition-opacity">상세 보기 →</p>
+      </a>`
+      )
+      .join("");
+  } else if (relatedSection) {
+    relatedSection.classList.add("hidden");
   }
 });
 

@@ -138,44 +138,37 @@ input {
 
 .nav-link[data-tooltip] {
   position: relative;
-  overflow: hidden;
 }
 
-/* 원본 텍스트: 호버 시 위로 슬라이드 아웃 */
+/* 원본 텍스트: 호버 시 페이드 아웃 */
 .nav-link[data-tooltip] > .nav-label {
   display: inline-block;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: opacity 0.2s ease;
 }
 
 .nav-link[data-tooltip]:hover > .nav-label {
-  transform: translateY(-120%);
   opacity: 0;
 }
 
-/* 한글 텍스트: 아래에서 슬라이드 인 */
+/* 한글 텍스트: 페이드 인, 위치는 원본 위에 겹침 */
 .nav-link[data-tooltip]::after {
   content: attr(data-tooltip);
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: inherit;
-  font-weight: inherit;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: none;
   white-space: nowrap;
   color: var(--on-surface);
-  transform: translateY(120%);
   opacity: 0;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
 }
 
 .nav-link[data-tooltip]:hover::after {
-  transform: translateY(0);
   opacity: 1;
 }
 

@@ -10,10 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const basinProducts = ["CL-370", "CL-371", "CL-384", "CL-386", "CL-366", "CL-359", "VELO-M", "TGIR-M", "CL-910", "CL-332", "CL-347", "CL-336", "CL-826", "CL-506", "CL-509", "CL-501", "CL-605", "CL-604", "CL-603"];
     const faucetProducts = ["DL-B2113SN", "DL-B2113", "DL-L2110SN", "DL-L2110", "DL-B2312SN", "DL-B2312", "DL-L2310SN", "DL-L2310", "DL-2113", "BL-2312", "DL-2110", "DL-2310", "DL-7313", "DL-7310", "DL-B5612", "DL-5910", "DL-7313SN", "DL-8010", "DL-5513", "DL-5413", "DL-3016", "DL-3013", "DL-3011", "DL-8410J", "DL-9010", "DL-K1110", "DL-K3015", "DL-8013", "DL-L5612", "DL-L5612SN", "DL-B3010", "DL-B6010", "DL-B6210", "DL-B6211", "DL-B7010"];
     const urinalProducts = ["CU-511PU", "CU-600", "CU-505", "CU-511U", "CU-110", "CS-1"];
+    const bidetProducts = ["CC-4000", "CC-550", "CC-6000", "CC-660N", "CC-670", "CC-680N", "CC-790", "CC-790C", "CC-800", "CC-830", "CC-910", "CC-500"];
     let backCat = "toilet";
     if (basinProducts.includes(productName)) backCat = "basin";
     else if (faucetProducts.includes(productName)) backCat = "faucet";
     else if (urinalProducts.includes(productName)) backCat = "urinal";
+    else if (bidetProducts.includes(productName)) backCat = "bidet";
     back.href = `brand-daelim.html?cat=${backCat}`;
     back.innerHTML = `<span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO DAELIM`;
   } else if (formatKey === "kyerim") {

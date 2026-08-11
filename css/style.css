@@ -138,35 +138,45 @@ input {
 
 .nav-link[data-tooltip] {
   position: relative;
+  overflow: hidden;
 }
 
+/* 원본 텍스트: 호버 시 위로 슬라이드 아웃 */
+.nav-link[data-tooltip] > .nav-label {
+  display: inline-block;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-link[data-tooltip]:hover > .nav-label {
+  transform: translateY(-120%);
+  opacity: 0;
+}
+
+/* 한글 텍스트: 아래에서 슬라이드 인 */
 .nav-link[data-tooltip]::after {
   content: attr(data-tooltip);
   position: absolute;
-  left: 50%;
-  top: calc(100% + 10px);
-  transform: translateX(-50%) translateY(4px);
-  padding: 6px 10px;
-  font-size: 11px;
-  font-weight: 500;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: inherit;
+  font-weight: inherit;
   letter-spacing: 0.06em;
   text-transform: none;
   white-space: nowrap;
   color: var(--on-surface);
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid var(--border);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(120%);
   opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-  z-index: 200;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .nav-link[data-tooltip]:hover::after {
+  transform: translateY(0);
   opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
 }
 
 .top-nav.is-scrolled .nav-link:hover,

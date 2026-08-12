@@ -903,29 +903,60 @@ input {
   white-space: nowrap;
 }
 
-.gallery-list__title--format {
-  font-family: "Libre Caslon Text", serif;
-  font-size: clamp(17px, 2.2vw, 20px);
-  font-weight: 400;
-  letter-spacing: 0.01em;
+/* Tile format dimensions — e.g. 800 × 800 mm */
+.format-size {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
 }
 
-.gallery-list__title--format .format-sep {
-  display: inline-block;
-  margin: 0 0.28em;
-  opacity: 0.42;
-  font-weight: 300;
+.format-size__dims {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.12em;
 }
 
-.gallery-list__title--format .format-unit {
-  margin-left: 0.45em;
-  font-family: "DM Sans", sans-serif;
-  font-size: 0.68em;
+.format-size__num {
   font-weight: 500;
-  letter-spacing: 0.12em;
+  color: var(--on-surface);
+}
+
+.format-size__sep {
+  font-size: 0.72em;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--on-tertiary);
+  transform: translateY(-0.06em);
+}
+
+.format-size__unit {
+  margin-left: 0.55em;
+  padding-left: 0.55em;
+  border-left: 1px solid var(--border);
+  font-size: 0.62em;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--on-tertiary);
-  vertical-align: 0.08em;
+  line-height: 1.2;
+}
+
+.format-size--compact .format-size__unit {
+  margin-left: 0.4em;
+  padding-left: 0.4em;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+}
+
+.gallery-list__item:hover .format-size__num {
+  color: var(--charcoal);
+}
+
+.gallery-list__item:hover .format-size__unit {
+  color: var(--muted);
+  border-left-color: rgba(0, 0, 0, 0.14);
 }
 
 .gallery-list__item:hover .gallery-list__title {

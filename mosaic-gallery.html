@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>모짜이크 Gallery — DS</title>
+  <title>모짜?�크 Gallery ??DS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=30" />
+  <link rel="stylesheet" href="css/style.css?v=31" />
 </head>
 <body>
   <nav class="top-nav is-scrolled" id="top-nav">
@@ -17,10 +17,10 @@
         <span class="logo__letter">D</span><span class="logo__sep" aria-hidden="true"></span><span class="logo__letter">S</span>
       </a>
       <div class="top-nav__links">
-        <a class="nav-link" href="materials.html#formats" data-tooltip="자재리스트"><span class="nav-label">Collections</span></a>
-        <a class="nav-link" href="auxiliary.html#brands" data-tooltip="양변기&수전류"><span class="nav-label">Materials</span></a>
-        <a class="nav-link" href="top-picks.html" data-tooltip="추천상품"><span class="nav-label">Top picks</span></a>
-        <a class="nav-link" href="photo-gallery.html" data-tooltip="시공사진"><span class="nav-label">Gallery</span></a>
+        <a class="nav-link" href="materials.html#formats" data-tooltip="?�재리스??><span class="nav-label">Collections</span></a>
+        <a class="nav-link" href="auxiliary.html#brands" data-tooltip="?��?�??�전�?><span class="nav-label">Materials</span></a>
+        <a class="nav-link" href="top-picks.html" data-tooltip="추천?�품"><span class="nav-label">Top picks</span></a>
+        <a class="nav-link" href="photo-gallery.html" data-tooltip="?�공?�진"><span class="nav-label">Gallery</span></a>
       </div>
     </div>
   </nav>
@@ -34,12 +34,12 @@
         </a>
 
         <div class="gallery-page__header">
-          <span class="eyebrow" id="mosaic-eyebrow">모짜이크</span>
+          <span class="eyebrow" id="mosaic-eyebrow">모짜?�크</span>
           <h1 id="mosaic-title">카테고리</h1>
-          <p id="mosaic-count">규격별 카테고리</p>
+          <p id="mosaic-count">규격�?카테고리</p>
         </div>
 
-        <nav class="gallery-list" id="rect-size-list" aria-label="직사각 규격" hidden></nav>
+        <nav class="gallery-list" id="rect-size-list" aria-label="직사�?규격" hidden></nav>
         <div class="gallery-formats" id="gallery-formats" hidden></div>
       </div>
     </section>
@@ -71,7 +71,7 @@
               <div class="gallery-format__caption">
                 <span class="gallery-format__num">${num}</span>
                 <span class="gallery-format__label">${item.name}</span>
-                <span class="gallery-format__action">상세 보기</span>
+                <span class="gallery-format__action">?�세 보기</span>
               </div>
             </a>`;
         })
@@ -80,10 +80,10 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       const labels = {
-        square: "정각",
-        rect: "직사각",
-        hex: "육각",
-        circle: "원형",
+        square: "?�각",
+        rect: "직사�?,
+        hex: "?�각",
+        circle: "?�형",
         pattern: "모양",
       };
 
@@ -96,13 +96,13 @@
       const backEl = document.getElementById("mosaic-back");
       const sizeList = document.getElementById("rect-size-list");
       const formatsEl = document.getElementById("gallery-formats");
-      const catTitle = labels[cat] || "모짜이크";
+      const catTitle = labels[cat] || "모짜?�크";
 
       if (cat === "rect" && window.MOSAIC_RECT) {
         if (!sizeKey) {
-          titleEl.textContent = "직사각";
-          countEl.textContent = `규격 ${MOSAIC_RECT.length}개 · 클릭 후 상세 확인`;
-          document.title = "직사각 — 모짜이크 — DS";
+          titleEl.textContent = "직사�?;
+          countEl.textContent = `규격 ${MOSAIC_RECT.length}�?· ?�릭 ???�세 ?�인`;
+          document.title = "직사�???모짜?�크 ??DS";
           sizeList.hidden = false;
           sizeList.innerHTML = MOSAIC_RECT.map((size, i) => {
             const num = String(i + 1).padStart(2, "0");
@@ -121,16 +121,16 @@
 
         const size = MOSAIC_RECT.find((s) => s.key === sizeKey);
         if (!size) {
-          titleEl.textContent = "규격을 찾을 수 없습니다";
+          titleEl.textContent = "규격??찾을 ???�습?�다";
           return;
         }
 
-        eyebrowEl.textContent = "모짜이크 · 직사각";
+        eyebrowEl.textContent = "모짜?�크 · 직사�?;
         titleEl.textContent = size.label;
-        countEl.textContent = `${size.count} products · 상세 페이지 연결`;
-        document.title = `${size.label} — 직사각 — DS`;
+        countEl.textContent = `${size.count} products · ?�세 ?�이지 ?�결`;
+        document.title = `${size.label} ??직사�???DS`;
         backEl.href = "mosaic-gallery.html?cat=rect";
-        backEl.innerHTML = `<span class="material-symbols-outlined">arrow_back</span> Back to 직사각`;
+        backEl.innerHTML = `<span class="material-symbols-outlined">arrow_back</span> Back to 직사�?;
 
         renderProducts(
           size.items.map((item) => ({
@@ -144,13 +144,13 @@
 
       const flat = window.MOSAIC_FLAT && MOSAIC_FLAT[cat];
       if (!flat) {
-        titleEl.textContent = "카테고리를 찾을 수 없습니다";
+        titleEl.textContent = "카테고리�?찾을 ???�습?�다";
         return;
       }
 
       titleEl.textContent = flat.label || catTitle;
-      countEl.textContent = `${flat.count} products · 상세 페이지 연결`;
-      document.title = `${flat.label || catTitle} — 모짜이크 — DS`;
+      countEl.textContent = `${flat.count} products · ?�세 ?�이지 ?�결`;
+      document.title = `${flat.label || catTitle} ??모짜?�크 ??DS`;
       renderProducts(
         flat.items.map((item) => ({
           ...item,

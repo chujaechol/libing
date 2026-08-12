@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photo Gallery — DS</title>
+  <title>Photo Gallery ??DS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=30" />
+  <link rel="stylesheet" href="css/style.css?v=31" />
 </head>
 <body>
   <nav class="top-nav is-scrolled" id="top-nav">
@@ -17,10 +17,10 @@
         <span class="logo__letter">D</span><span class="logo__sep" aria-hidden="true"></span><span class="logo__letter">S</span>
       </a>
       <div class="top-nav__links">
-        <a class="nav-link" href="materials.html#formats" data-tooltip="자재리스트"><span class="nav-label">Collections</span></a>
-        <a class="nav-link" href="auxiliary.html#brands" data-tooltip="양변기&수전류"><span class="nav-label">Materials</span></a>
-        <a class="nav-link" href="top-picks.html" data-tooltip="추천상품"><span class="nav-label">Top picks</span></a>
-        <a class="nav-link is-active" href="photo-gallery.html" data-tooltip="시공사진"><span class="nav-label">Gallery</span></a>
+        <a class="nav-link" href="materials.html#formats" data-tooltip="?�재리스??><span class="nav-label">Collections</span></a>
+        <a class="nav-link" href="auxiliary.html#brands" data-tooltip="?��?�??�전�?><span class="nav-label">Materials</span></a>
+        <a class="nav-link" href="top-picks.html" data-tooltip="추천?�품"><span class="nav-label">Top picks</span></a>
+        <a class="nav-link is-active" href="photo-gallery.html" data-tooltip="?�공?�진"><span class="nav-label">Gallery</span></a>
       </div>
     </div>
   </nav>
@@ -36,7 +36,7 @@
         <div class="gallery-page__header">
           <span class="eyebrow">Collection 04</span>
           <h1>Photo Gallery</h1>
-          <p>시공사진 카테고리를 선택하세요</p>
+          <p>?�공?�진 카테고리�??�택?�세??/p>
         </div>
 
         <nav class="gallery-list" aria-label="Gallery categories">
@@ -77,14 +77,14 @@
               <span class="material-symbols-outlined">door_front</span>
             </span>
             <span class="gallery-list__num">05</span>
-            <span class="gallery-list__title">현관 Gallery</span>
+            <span class="gallery-list__title">?��? Gallery</span>
             <span class="gallery-list__meta">Entrance</span>
           </a>
         </nav>
 
         <div id="gallery-empty" class="gallery-page__empty" hidden>
-          <p class="gallery-page__empty-title">준비 중</p>
-          <p>해당 갤러리 이미지를 곧 업데이트할 예정입니다.</p>
+          <p class="gallery-page__empty-title">준�?�?/p>
+          <p>?�당 갤러�??��?지�?�??�데?�트???�정?�니??</p>
           <a class="btn btn--dark" href="photo-gallery.html">모든 카테고리</a>
         </div>
       </div>
@@ -97,7 +97,7 @@
       const labels = {
         "600x1200": "600 × 1200 Gallery",
         kitchen: "주방 Gallery",
-        entrance: "현관 Gallery",
+        entrance: "?��? Gallery",
       };
       const subtitles = {
         "600x1200": "Format 600 × 1200 mm",
@@ -107,7 +107,7 @@
 
       if (!cat || !labels[cat]) return;
 
-      document.title = `${labels[cat]} — DS`;
+      document.title = `${labels[cat]} ??DS`;
       document.querySelector(".gallery-page__header h1").textContent = labels[cat];
       document.querySelector(".gallery-page__header p").textContent = subtitles[cat] || "";
       document.querySelector(".gallery-list").hidden = true;

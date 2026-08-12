@@ -894,10 +894,11 @@ input {
 }
 
 .gallery-list__title {
-  font-family: "Libre Caslon Text", serif;
-  font-size: clamp(18px, 2.8vw, 22px);
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
 }
 
 .gallery-list__item:hover .gallery-list__title {

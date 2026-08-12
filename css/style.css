@@ -1227,3 +1227,21 @@ input {
     gap: 18px 14px;
   }
 }
+
+/* Standalone top-pick product view */
+.top-pick-product {
+  margin-top: 32px;
+}
+
+.top-pick-product__frame {
+  max-width: 360px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  background: #f4f4f3;
+}
+
+.top-pick-product__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

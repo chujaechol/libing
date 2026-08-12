@@ -903,6 +903,31 @@ input {
   white-space: nowrap;
 }
 
+.gallery-list__title--format {
+  font-family: "Libre Caslon Text", serif;
+  font-size: clamp(17px, 2.2vw, 20px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.gallery-list__title--format .format-sep {
+  display: inline-block;
+  margin: 0 0.28em;
+  opacity: 0.42;
+  font-weight: 300;
+}
+
+.gallery-list__title--format .format-unit {
+  margin-left: 0.45em;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.68em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--on-tertiary);
+  vertical-align: 0.08em;
+}
+
 .gallery-list__item:hover .gallery-list__title {
   color: var(--charcoal);
 }

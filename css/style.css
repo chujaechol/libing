@@ -903,6 +903,23 @@ input {
   white-space: nowrap;
 }
 
+.gallery-list__heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.gallery-list__thumb {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  background: #f4f4f3;
+  flex-shrink: 0;
+}
+
 /* Tile format dimensions — e.g. 800 × 800 mm */
 .format-size {
   display: inline-flex;

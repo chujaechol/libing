@@ -147,6 +147,7 @@ window.DS_CATALOG = {
       { brand: "DS TILE", name: "V-라바1", finish: "무광", image: "assets/products/300x600/v-lava1.png" },
       { brand: "DS TILE", name: "V-라바2", finish: "무광", image: "assets/products/300x600/v-lava2.png" },
       { brand: "DS TILE", name: "G-2631", finish: "무광", image: "assets/products/300x600/g-2631.png" },
+      { brand: "DS TILE", name: "G-2856", finish: "무광", image: "assets/products/300x600/g-2856.png" },
       { brand: "DS TILE", name: "G-1371", finish: "무광", image: "assets/products/300x600/g-1371.png" },
       { brand: "DS TILE", name: "G-2692", finish: "무광", image: "assets/products/300x600/g-2692.png" },
       { brand: "DS TILE", name: "G-2691", finish: "무광", image: "assets/products/300x600/g-2691.png" },
@@ -3561,6 +3562,12 @@ window.DS_CATALOG = {
       description: "",
       specs: { 규격: "300*600(포)", "m²/Box": "1.44", "Pcs/Box": "8", 두께: "10mm", 마감: "무광" },
       gallery: ["assets/products/300x600/g-2631.png", IMG.bathroom, IMG.lobby],
+    },
+    "G-2856": {
+      title: "G-2856 G-2856_포세린",
+      description: "",
+      specs: { 규격: "300*600(포)", "m²/Box": "1.44", "Pcs/Box": "8", 두께: "10mm", 마감: "무광" },
+      gallery: ["assets/products/300x600/g-2856.png", IMG.bathroom, IMG.lobby],
     },
     "G-1371": {
       title: "G-1371 G-1371_포세린",

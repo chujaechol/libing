@@ -4,6 +4,9 @@
     margin: 0;
     padding: 0;
   }
+  #brands {
+    scroll-margin-top: 96px;
+  }
   body {
     overscroll-behavior: none;
   }

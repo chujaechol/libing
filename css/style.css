@@ -1233,15 +1233,46 @@ input {
   margin-top: 32px;
 }
 
-.top-pick-product__frame {
-  max-width: 360px;
+.top-pick-product__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+  max-width: 720px;
   margin: 0 auto;
+}
+
+.top-pick-product__frame {
   border: 1px solid var(--border);
   background: #f4f4f3;
+}
+
+.top-pick-product__frame--plank {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.top-pick-product__frame--square {
+  max-width: 280px;
+  margin: 0 auto;
 }
 
 .top-pick-product__frame img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+@media (min-width: 640px) {
+  .top-pick-product__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+  }
+
+  .top-pick-product__frame--plank,
+  .top-pick-product__frame--square {
+    max-width: none;
+    margin: 0;
+  }
 }

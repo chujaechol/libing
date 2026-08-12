@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (event) => {
       const id = anchor.getAttribute("href")?.slice(1);
-      if (!id) return;
+      if (!id || id === "gallery-menu") return;
 
       const target = document.getElementById(id);
       if (!target) return;
@@ -64,6 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   galleryTrigger?.addEventListener("click", openGalleryMenu);
+  document.querySelectorAll('a[href="#gallery-menu"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (!galleryMenu) return;
+      event.preventDefault();
+      openGalleryMenu();
+      history.pushState(null, "", "#gallery-menu");
+    });
+  });
   galleryMenu?.querySelectorAll("[data-gallery-close]").forEach((el) => {
     el.addEventListener("click", closeGalleryMenu);
   });
@@ -73,4 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
       closeGalleryMenu();
     }
   });
+
+  if (window.location.hash === "#gallery-menu") {
+    openGalleryMenu();
+  }
 });

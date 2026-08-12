@@ -155,6 +155,7 @@ window.DS_CATALOG = {
       { brand: "DS TILE", name: "G-2691", finish: "무광", image: "assets/products/300x600/g-2691.png" },
       { brand: "DS TILE", name: "G-2696", finish: "무광", image: "assets/products/300x600/g-2696.png" },
       { brand: "DS TILE", name: "G-2962", finish: "무광", image: "assets/products/300x600/g-2962.png" },
+      { brand: "DS TILE", name: "G-3112", finish: "무광", image: "assets/products/300x600/g-3112.png" },
       { brand: "DS TILE", name: "G-2966", finish: "무광", image: "assets/products/300x600/g-2966.png" },
       { brand: "DS TILE", name: "G-3281", finish: "무광", image: "assets/products/300x600/g-3281.png" },
       { brand: "DS TILE", name: "G-3371", finish: "무광", image: "assets/products/300x600/g-3371.png" },
@@ -338,6 +339,7 @@ window.DS_CATALOG = {
       { brand: "DS TILE", name: "G-30331", finish: "무광", image: "assets/products/300x300/g-30331.png" },
       { brand: "DS TILE", name: "G-30336", finish: "무광", image: "assets/products/300x300/g-30336.png" },
       { brand: "DS TILE", name: "G-30332", finish: "무광", image: "assets/products/300x300/g-30332.png" },
+      { brand: "DS TILE", name: "G-30342", finish: "무광", image: "assets/products/300x300/g-30342.png" },
       { brand: "DS TILE", name: "G-30426", finish: "무광", image: "assets/products/300x300/g-30426.png" },
       { brand: "DS TILE", name: "G-30431", finish: "무광", image: "assets/products/300x300/g-30431.png" },
       { brand: "DS TILE", name: "G-30432", finish: "무광", image: "assets/products/300x300/g-30432.png" },
@@ -3613,6 +3615,12 @@ window.DS_CATALOG = {
       specs: { 규격: "300*600(포)", "m²/Box": "1.44", "Pcs/Box": "8", 두께: "10mm", 마감: "무광" },
       gallery: ["assets/products/300x600/g-2962.png", IMG.bathroom, IMG.lobby],
     },
+    "G-3112": {
+      title: "G-3112 G-3112_포세린",
+      description: "",
+      specs: { 규격: "300*600(포)", "m²/Box": "1.44", "Pcs/Box": "8", 두께: "10mm", 마감: "무광" },
+      gallery: ["assets/products/300x600/g-3112.png", IMG.bathroom, IMG.lobby],
+    },
     "G-2966": {
       title: "G-2966 G-2966_포세린",
       description: "",
@@ -3876,6 +3884,12 @@ window.DS_CATALOG = {
       description: "",
       specs: { 규격: "300*300(포)", "m²/Box": "1.44", "Pcs/Box": "16", 두께: "10mm", 마감: "무광" },
       gallery: ["assets/products/300x300/g-30332.png", IMG.lobby, IMG.patio],
+    },
+    "G-30342": {
+      title: "G-30342 G-30342_포세린",
+      description: "",
+      specs: { 규격: "300*300(포)", "m²/Box": "1.44", "Pcs/Box": "16", 두께: "10mm", 마감: "무광" },
+      gallery: ["assets/products/300x300/g-30342.png", IMG.bathroom, IMG.lobby],
     },
     "G-30426": {
       title: "G-30426 G-30426_포세린",

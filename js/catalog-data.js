@@ -83,7 +83,7 @@ window.DS_CATALOG = {
       label: "Point",
       number: "10",
       subtitle: "200 × 1200 mm / 10mm",
-      shape: "slab-xl",
+      shape: "square-lg",
     },
   ],
   byFormat: {

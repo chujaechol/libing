@@ -150,6 +150,7 @@ window.DS_CATALOG = {
       { brand: "DS TILE", name: "G-2856", finish: "무광", image: "assets/products/300x600/g-2856.png" },
       { brand: "DS TILE", name: "G-1371", finish: "무광", image: "assets/products/300x600/g-1371.png" },
       { brand: "DS TILE", name: "G-2692", finish: "무광", image: "assets/products/300x600/g-2692.png" },
+      { brand: "DS TILE", name: "K-898", finish: "무광", image: "assets/products/300x600/k-898.png" },
       { brand: "DS TILE", name: "G-2691", finish: "무광", image: "assets/products/300x600/g-2691.png" },
       { brand: "DS TILE", name: "G-2696", finish: "무광", image: "assets/products/300x600/g-2696.png" },
       { brand: "DS TILE", name: "G-2962", finish: "무광", image: "assets/products/300x600/g-2962.png" },
@@ -3580,6 +3581,12 @@ window.DS_CATALOG = {
       description: "",
       specs: { 규격: "300*600(포)", "m²/Box": "1.44", "Pcs/Box": "8", 두께: "10mm", 마감: "무광" },
       gallery: ["assets/products/300x600/g-2692.png", IMG.bathroom, IMG.patio],
+    },
+    "K-898": {
+      title: "K-898 K-898_포세린",
+      description: "",
+      specs: { 규격: "300*600(포)", "m²/Box": "1.44", "Pcs/Box": "8", 두께: "10mm", 마감: "무광" },
+      gallery: ["assets/products/300x600/k-898.png", IMG.bathroom, IMG.patio],
     },
     "G-2691": {
       title: "G-2691 G-2691_포세린",

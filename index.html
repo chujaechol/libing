@@ -20,7 +20,7 @@
         <a class="nav-link is-active" href="materials.html#formats" data-tooltip="자재리스트"><span class="nav-label">Collections</span></a>
         <a class="nav-link" href="auxiliary.html#brands" data-tooltip="양변기&수전류"><span class="nav-label">Materials</span></a>
         <a class="nav-link" href="mosaic-categories.html" data-tooltip="추천상품"><span class="nav-label">Top picks</span></a>
-        <a class="nav-link" href="#gallery-menu" data-tooltip="시공사진"><span class="nav-label">Gallery</span></a>
+        <a class="nav-link" href="photo-gallery.html" data-tooltip="시공사진"><span class="nav-label">Gallery</span></a>
       </div>
     </div>
     <div class="top-nav__actions">
@@ -107,25 +107,22 @@
         </article>
 
         <article class="collection-card">
-          <div class="collection-card__media">
-            <button
-              type="button"
-              class="collection-card__image collection-card__image--photo-gallery"
-              style="background-image: url('assets/hero-porcelain.jpg')"
-              id="photo-gallery-trigger"
-              aria-label="Photo Gallery 카테고리 보기"
-              aria-haspopup="dialog"
-              aria-controls="gallery-menu"
-            ></button>
-          </div>
-          <div class="collection-card__meta">
-            <h3>Photo Gallery</h3>
-            <span>Collection 04</span>
-          </div>
-          <p>
-            Visual narratives of spaces transformed by DS materials and
-            architectural vision.
-          </p>
+          <a class="collection-card__link" href="photo-gallery.html" aria-label="Photo Gallery 카테고리 보기">
+            <div class="collection-card__media">
+              <div
+                class="collection-card__image collection-card__image--photo-gallery"
+                style="background-image: url('assets/hero-porcelain.jpg')"
+              ></div>
+            </div>
+            <div class="collection-card__meta">
+              <h3>Photo Gallery</h3>
+              <span>Collection 04</span>
+            </div>
+            <p>
+              Visual narratives of spaces transformed by DS materials and
+              architectural vision.
+            </p>
+          </a>
         </article>
       </div>
     </section>
@@ -265,7 +262,7 @@
   </footer>
 
   <nav class="bottom-nav" aria-label="Mobile navigation">
-    <a class="bottom-nav__item is-active" href="#gallery-menu">
+    <a class="bottom-nav__item is-active" href="photo-gallery.html">
       <span class="material-symbols-outlined">gallery_thumbnail</span>
       <span>Gallery</span>
     </a>

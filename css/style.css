@@ -899,6 +899,8 @@ input {
   font-weight: 500;
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
+  overflow: visible;
+  white-space: nowrap;
 }
 
 .gallery-list__item:hover .gallery-list__title {

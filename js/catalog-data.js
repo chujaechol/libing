@@ -90,7 +90,7 @@ window.DS_CATALOG = {
     "900x900": [],
     "200x1200": [
       { brand: "DS TILE", name: "모짜이크", finish: "무광", image: "assets/products/200x1200/point-01.png", href: "mosaic-categories.html" },
-      { brand: "DS TILE", name: "Point-02", finish: "무광", image: "assets/products/200x1200/point-02.png" },
+      { brand: "DS TILE", name: "Point-02", finish: "무광", image: "assets/products/200x1200/point-02.png", href: "point-02.html" },
       { brand: "DS TILE", name: "Point-03", finish: "무광", image: "assets/products/200x1200/point-03.png" },
       { brand: "DS TILE", name: "Point-04", finish: "무광", image: "assets/products/200x1200/point-04.png" },
       { brand: "DS TILE", name: "Point-05", finish: "무광", image: "assets/products/200x1200/point-05.png" },
@@ -983,9 +983,16 @@ window.DS_CATALOG = {
         재질: "포세린",
       },
       gallery: ["assets/products/200x1200/point-02.png", IMG.bathroom, IMG.patio],
-      character: "Point-02는 200×1200 롱 플랭크 포세린 타일입니다. 차분한 톤으로 모던한 공간에 어울립니다.",
+      character:
+        "Point-02는 200×1200 롱 플랭크 포세린 타일입니다. 차분한 아이보리 톤과 석재 질감이 모던한 공간에 어울립니다.",
       cta: "Point-02로 공간을 완성해 보세요.",
       imageFit: "contain",
+      highlights: [
+        { icon: "straighten", title: "Long Plank", text: "200 × 1200 mm 롱 플랭크로 긴 동선에 안정적인 리듬을 만듭니다." },
+        { icon: "texture", title: "Stone Texture", text: "은은한 석재 입자감으로 자연스럽고 정돈된 표면을 연출합니다." },
+        { icon: "contrast", title: "Matte Finish", text: "무광 마감으로 빛 반사를 줄여 차분한 공간을 완성합니다." },
+        { icon: "architecture", title: "Versatile Use", text: "벽·바닥 모두에 적합하며 욕실·복도·거실에 잘 어울립니다." },
+      ],
     },
     "Point-03": {
       title: "Point-03",

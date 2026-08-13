@@ -1319,3 +1319,220 @@ input {
     margin: 0;
   }
 }
+
+/* Point product detail (200 × 1200) */
+.point-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 36px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.point-detail__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.point-detail__frame {
+  margin: 0;
+  width: min(180px, 42vw);
+  border: 1px solid var(--border);
+  background: #f4f4f3;
+}
+
+.point-detail__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 6;
+  object-fit: cover;
+}
+
+.point-detail__brand {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-tertiary);
+}
+
+.point-detail__name {
+  margin: 0 0 8px;
+  font-family: "Libre Caslon Text", serif;
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.point-detail__desc {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.point-detail__specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 0 0 28px;
+  border-top: 1px solid var(--border);
+}
+
+.point-detail__spec {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.point-detail__spec:nth-child(odd) {
+  padding-right: 16px;
+}
+
+.point-detail__spec:nth-child(even) {
+  padding-left: 16px;
+  border-left: 1px solid var(--border);
+}
+
+.point-detail__spec dt {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--on-tertiary);
+}
+
+.point-detail__spec dd {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.point-detail__character {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.point-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.point-detail__cta,
+.point-detail__ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 22px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: background 0.2s var(--ease-soft), color 0.2s var(--ease-soft), border-color 0.2s var(--ease-soft);
+}
+
+.point-detail__cta {
+  background: var(--charcoal);
+  color: #fff;
+}
+
+.point-detail__cta:hover {
+  background: #000;
+}
+
+.point-detail__cta .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.point-detail__ghost {
+  border: 1px solid var(--border);
+  color: var(--on-surface);
+  background: transparent;
+}
+
+.point-detail__ghost:hover {
+  border-color: var(--charcoal);
+}
+
+.point-related {
+  margin-top: 48px;
+}
+
+.point-related__head {
+  margin-bottom: 24px;
+}
+
+.point-related__head h2 {
+  margin: 8px 0 0;
+  font-family: "Libre Caslon Text", serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.point-related__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.point-related__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  text-decoration: none;
+  color: var(--on-surface);
+  transition: border-color 0.2s var(--ease-soft);
+}
+
+.point-related__card:hover {
+  border-color: var(--charcoal);
+}
+
+.point-related__card img {
+  display: block;
+  width: 48px;
+  height: 288px;
+  object-fit: cover;
+  background: #f4f4f3;
+}
+
+.point-related__card span {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 768px) {
+  .point-detail {
+    grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
+    gap: 56px;
+    align-items: start;
+  }
+
+  .point-detail__visual {
+    justify-content: flex-start;
+  }
+
+  .point-detail__frame {
+    width: 180px;
+  }
+
+  .point-related__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

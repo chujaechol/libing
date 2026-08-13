@@ -51,23 +51,29 @@
           n: 1,
           src: "assets/gallery/600x1200/bathroom/01.png",
           alt: "600 \u00D7 1200 Bathroom 01",
+          href: "gallery-600x1200-01.html",
         },
-        {
-          n: 2,
-          src: "assets/gallery/600x1200/bathroom/02.png",
-          alt: "600 \u00D7 1200 Bathroom 02",
-        },
-        {
-          n: 3,
-          src: "assets/gallery/600x1200/bathroom/03.png",
-          alt: "600 \u00D7 1200 Bathroom 03",
-        },
+        { n: 2 },
+        { n: 3 },
       ];
 
       document.getElementById("gallery-formats").innerHTML = formats
         .map((item) => {
           const label = `Format ${item.n}`;
           const num = String(item.n).padStart(2, "0");
+          if (item.src && item.href) {
+            return `
+              <a class="gallery-format gallery-format--link" href="${item.href}">
+                <div class="gallery-format__media">
+                  <img src="${item.src}" alt="${item.alt}" />
+                </div>
+                <div class="gallery-format__caption">
+                  <span class="gallery-format__num">${num}</span>
+                  <span class="gallery-format__label">${label}</span>
+                  <span class="gallery-format__action">&#49345;&#49464; &#48372;&#44592;</span>
+                </div>
+              </a>`;
+          }
           return `
             <figure class="gallery-format">
               <div class="gallery-format__media">

@@ -136,6 +136,7 @@ window.DS_CATALOG = {
       { brand: "DS TILE", name: "G-1260022M", finish: "무광", image: "assets/products/600x1200/g-1260022m.png" },
       { brand: "DS TILE", name: "G-612901", finish: "무광", image: "assets/products/600x1200/g-612901.png" },
       { brand: "DS TILE", name: "G-612902", finish: "무광", image: "assets/products/600x1200/g-612902.png" },
+      { brand: "DS TILE", name: "V-6601", finish: "무광", image: "assets/products/600x1200/v-6601.png" },
     ],
     "800x1600": [
       { brand: "DS TILE", name: "HE 로마 아리보리", finish: "무광", origin: "Italy", image: "assets/products/800x1600/g-81601.png" },
@@ -950,6 +951,13 @@ window.DS_CATALOG = {
       description: "",
       specs: { 규격: "600*1200(포)", "m²/Box": "1.44", "Pcs/Box": "2", 두께: "10mm", 마감: "무광" },
       gallery: ["assets/products/600x1200/g-612902.png", IMG.patio, IMG.lobby],
+    },
+    "V-6601": {
+      title: "V-6601 V-6601_포세린",
+      description: "",
+      specs: { 규격: "600*1200(포)", "m²/Box": "1.44", "Pcs/Box": "2", 두께: "10mm", 마감: "무광" },
+      gallery: ["assets/products/600x1200/v-6601.png", IMG.bathroom, IMG.lobby],
+      imageFit: "contain",
     },
     "모짜이크": {
       title: "모짜이크",

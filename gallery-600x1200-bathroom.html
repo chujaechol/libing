@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>600 &#215; 1200 &#50837;&#49892; — DS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=41" />
+</head>
+<body>
+  <nav class="top-nav is-scrolled" id="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html" aria-label="DS">
+        <span class="logo__letter">D</span><span class="logo__sep" aria-hidden="true"></span><span class="logo__letter">S</span>
+      </a>
+      <div class="top-nav__links">
+        <a class="nav-link" href="materials.html#formats" data-tooltip="&#51088;&#51116;&#47532;&#49828;&#53944;"><span class="nav-label">Collections</span></a>
+        <a class="nav-link" href="auxiliary.html#brands" data-tooltip="&#50577;&#48320;&#44592;&amp;&#49688;&#51204;&#47448;"><span class="nav-label">Materials</span></a>
+        <a class="nav-link" href="top-picks.html" data-tooltip="&#52628;&#52380;&#49345;&#54408;"><span class="nav-label">Top picks</span></a>
+        <a class="nav-link is-active" href="photo-gallery.html" data-tooltip="&#49884;&#44277;&#49324;&#51652;"><span class="nav-label">Gallery</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="gallery-page">
+      <div class="gallery-page__inner gallery-page__inner--wide">
+        <a class="gallery-page__back" href="gallery-600x1200.html">
+          <span class="material-symbols-outlined">arrow_back</span>
+          Back to 600 &#215; 1200
+        </a>
+
+        <div class="gallery-page__header">
+          <span class="eyebrow">600 &#215; 1200 Gallery</span>
+          <h1>&#50837;&#49892;</h1>
+          <p>Format 1 &#8212; 3</p>
+        </div>
+
+        <div class="gallery-formats" id="gallery-formats"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const formats = [
+        {
+          n: 1,
+          src: "assets/gallery/600x1200/bathroom/01.png",
+          alt: "600 \u00D7 1200 Bathroom 01",
+        },
+        {
+          n: 2,
+          src: "assets/gallery/600x1200/bathroom/02.png",
+          alt: "600 \u00D7 1200 Bathroom 02",
+        },
+        {
+          n: 3,
+          src: "assets/gallery/600x1200/bathroom/03.png",
+          alt: "600 \u00D7 1200 Bathroom 03",
+        },
+      ];
+
+      document.getElementById("gallery-formats").innerHTML = formats
+        .map((item) => {
+          const label = `Format ${item.n}`;
+          const num = String(item.n).padStart(2, "0");
+          return `
+            <figure class="gallery-format">
+              <div class="gallery-format__media">
+                <img src="${item.src}" alt="${item.alt}" />
+              </div>
+              <figcaption class="gallery-format__caption">
+                <span class="gallery-format__num">${num}</span>
+                <span class="gallery-format__label">${label}</span>
+              </figcaption>
+            </figure>`;
+        })
+        .join("");
+    });
+  </script>
+</body>
+</html>

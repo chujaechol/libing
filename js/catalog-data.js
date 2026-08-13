@@ -90,7 +90,7 @@ window.DS_CATALOG = {
     "900x900": [],
     "200x1200": [
       { brand: "DS TILE", name: "모짜이크", finish: "무광", image: "assets/products/200x1200/point-01.png", href: "mosaic-categories.html" },
-      { brand: "DS TILE", name: "AMBRA CERAMIC", finish: "무광", image: "assets/products/200x1200/point-02.png", href: "point-02.html" },
+      { brand: "DS TILE", name: "AMBRA CERAMIC", finish: "무광", image: "assets/products/ambra/ambra-ceramic.png", href: "point-02.html" },
       { brand: "DS TILE", name: "Point-03", finish: "무광", image: "assets/products/200x1200/point-03.png" },
       { brand: "DS TILE", name: "Point-04", finish: "무광", image: "assets/products/200x1200/point-04.png" },
       { brand: "DS TILE", name: "Point-05", finish: "무광", image: "assets/products/200x1200/point-05.png" },
@@ -978,7 +978,7 @@ window.DS_CATALOG = {
         구성: "WALLTILE · MOSAIC · FLOOR",
         출처: "ambraceramic.com",
       },
-      gallery: ["assets/products/200x1200/point-02.png", IMG.bathroom, IMG.patio],
+      gallery: ["assets/products/ambra/ambra-ceramic.png", IMG.bathroom, IMG.patio],
       character:
         "AMBRA CERAMIC은 벽타일·모자이크·바닥타일 PRODUCT 라인입니다. 카테고리에서 시리즈를 선택한 뒤 상세를 확인하세요.",
       cta: "AMBRA CERAMIC PRODUCT를 확인해 보세요.",

@@ -27,16 +27,16 @@
 
   <main>
     <section class="gallery-page">
-      <div class="gallery-page__inner">
-        <a class="gallery-page__back" href="photo-gallery.html">
+      <div class="gallery-page__inner" id="gallery-hub-inner">
+        <a class="gallery-page__back" href="photo-gallery.html" id="gallery-back">
           <span class="material-symbols-outlined">arrow_back</span>
           Back to Categories
         </a>
 
         <div class="gallery-page__header">
           <span class="eyebrow">Collection 04</span>
-          <h1>600 &#215; 1200 Gallery</h1>
-          <p>&#49884;&#44277;&#49324;&#51652; &#52852;&#53580;&#44256;&#47532;&#47484; &#49440;&#53469;&#54616;&#49464;&#50836;</p>
+          <h1 id="gallery-title">600 &#215; 1200 Gallery</h1>
+          <p id="gallery-subtitle">&#49884;&#44277;&#49324;&#51652; &#52852;&#53580;&#44256;&#47532;&#47484; &#49440;&#53469;&#54616;&#49464;&#50836;</p>
         </div>
 
         <nav class="gallery-list" aria-label="600 x 1200 gallery categories" id="gallery-600x1200-categories">
@@ -45,7 +45,7 @@
               <span class="material-symbols-outlined">bathtub</span>
             </span>
             <span class="gallery-list__num">01</span>
-            <span class="gallery-list__title">&#50837;&#49884;</span>
+            <span class="gallery-list__title">&#50837;&#49892;</span>
             <span class="gallery-list__meta">Bathroom</span>
           </a>
           <a class="gallery-list__item" href="gallery-600x1200.html?cat=living">
@@ -65,6 +65,8 @@
             <span class="gallery-list__meta">Lobby</span>
           </a>
         </nav>
+
+        <div class="gallery-formats" id="gallery-formats" hidden></div>
 
         <div id="gallery-empty" class="gallery-page__empty" hidden>
           <p class="gallery-page__empty-title">&#51456;&#48708; &#51473;</p>
@@ -89,27 +91,71 @@
         lobby: "\uB85C\uBE44 \u00B7 \uBCF5\uB3C4",
       };
       const subtitles = {
-        bathroom: "600 \u00D7 1200 mm \u00B7 Bathroom installation",
+        bathroom: "600 \u00D7 1200 mm \u00B7 Format 1 \u2014 3",
         living: "600 \u00D7 1200 mm \u00B7 Living installation",
         lobby: "600 \u00D7 1200 mm \u00B7 Lobby / corridor installation",
+      };
+      const photos = {
+        bathroom: [
+          {
+            n: 1,
+            src: "assets/gallery/600x1200/bathroom/01.png",
+            alt: "600 \u00D7 1200 Bathroom 01",
+          },
+          {
+            n: 2,
+            src: "assets/gallery/600x1200/bathroom/02.png",
+            alt: "600 \u00D7 1200 Bathroom 02",
+          },
+          {
+            n: 3,
+            src: "assets/gallery/600x1200/bathroom/03.png",
+            alt: "600 \u00D7 1200 Bathroom 03",
+          },
+        ],
       };
 
       if (!cat || !labels[cat]) return;
 
-      document.title = `600 \u00D7 1200 ${labels[cat]} — DS`;
-      document.querySelector(".gallery-page__header h1").textContent = titles[cat];
-      document.querySelector(".gallery-page__header p").textContent = subtitles[cat];
-      document.getElementById("gallery-600x1200-categories").hidden = true;
-      document.getElementById("gallery-empty").hidden = false;
-      document.getElementById("gallery-empty-desc").textContent =
-        `${titles[cat]} \uC2DC\uACF5\uC0AC\uC9C4\uC744 \uACE7 \uC5C5\uB370\uC774\uD2B8\uD560 \uC608\uC815\uC785\uB2C8\uB2E4.`;
+      const inner = document.getElementById("gallery-hub-inner");
+      inner.classList.add("gallery-page__inner--wide");
 
-      const back = document.querySelector(".gallery-page__back");
-      if (back) {
-        back.href = "gallery-600x1200.html";
-        back.innerHTML =
-          '<span class="material-symbols-outlined">arrow_back</span> Back to 600 \u00D7 1200';
+      document.title = `600 \u00D7 1200 ${titles[cat]} — DS`;
+      document.getElementById("gallery-title").textContent = titles[cat];
+      document.getElementById("gallery-subtitle").textContent = subtitles[cat];
+      document.getElementById("gallery-600x1200-categories").hidden = true;
+
+      const back = document.getElementById("gallery-back");
+      back.href = "gallery-600x1200.html";
+      back.innerHTML =
+        '<span class="material-symbols-outlined">arrow_back</span> Back to 600 \u00D7 1200';
+
+      const list = photos[cat];
+      if (!list || !list.length) {
+        document.getElementById("gallery-empty").hidden = false;
+        document.getElementById("gallery-empty-desc").textContent =
+          `${titles[cat]} \uC2DC\uACF5\uC0AC\uC9C4\uC744 \uACE7 \uC5C5\uB370\uC774\uD2B8\uD560 \uC608\uC815\uC785\uB2C8\uB2E4.`;
+        return;
       }
+
+      const root = document.getElementById("gallery-formats");
+      root.hidden = false;
+      root.innerHTML = list
+        .map((item) => {
+          const label = `Format ${item.n}`;
+          const num = String(item.n).padStart(2, "0");
+          return `
+            <figure class="gallery-format">
+              <div class="gallery-format__media">
+                <img src="${item.src}" alt="${item.alt || label}" />
+              </div>
+              <figcaption class="gallery-format__caption">
+                <span class="gallery-format__num">${num}</span>
+                <span class="gallery-format__label">${label}</span>
+              </figcaption>
+            </figure>`;
+        })
+        .join("");
     });
   </script>
 </body>

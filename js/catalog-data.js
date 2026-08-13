@@ -971,28 +971,18 @@ window.DS_CATALOG = {
     },
     "AMBRA CERAMIC": {
       title: "AMBRA CERAMIC",
-      description: "Matte Porcelain · Long Plank 200 × 1200",
+      description: "Partner Brand · Wall / Mosaic / Floor",
       specs: {
         브랜드: "AMBRA CERAMIC",
         품명: "AMBRA CERAMIC",
-        규격: "200 × 1200 mm",
-        "m²/Box": "1.44",
-        "Pcs/Box": "6",
-        두께: "10mm",
-        마감: "무광",
-        재질: "포세린",
+        구성: "WALLTILE · MOSAIC · FLOOR",
+        출처: "ambraceramic.com",
       },
       gallery: ["assets/products/200x1200/point-02.png", IMG.bathroom, IMG.patio],
       character:
-        "AMBRA CERAMIC은 200×1200 롱 플랭크 포세린 타일입니다. 차분한 아이보리 톤과 석재 질감이 모던한 공간에 어울립니다.",
-      cta: "AMBRA CERAMIC으로 공간을 완성해 보세요.",
+        "AMBRA CERAMIC은 벽타일·모자이크·바닥타일 PRODUCT 라인입니다. 카테고리에서 시리즈를 선택한 뒤 상세를 확인하세요.",
+      cta: "AMBRA CERAMIC PRODUCT를 확인해 보세요.",
       imageFit: "contain",
-      highlights: [
-        { icon: "straighten", title: "Long Plank", text: "200 × 1200 mm 롱 플랭크로 긴 동선에 안정적인 리듬을 만듭니다." },
-        { icon: "texture", title: "Stone Texture", text: "은은한 석재 입자감으로 자연스럽고 정돈된 표면을 연출합니다." },
-        { icon: "contrast", title: "Matte Finish", text: "무광 마감으로 빛 반사를 줄여 차분한 공간을 완성합니다." },
-        { icon: "architecture", title: "Versatile Use", text: "벽·바닥 모두에 적합하며 욕실·복도·거실에 잘 어울립니다." },
-      ],
     },
     "Point-03": {
       title: "Point-03",

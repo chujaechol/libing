@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMBRA Detail — DS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=40" />
+</head>
+<body>
+  <nav class="top-nav is-scrolled" id="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html" aria-label="DS">
+        <span class="logo__letter">D</span><span class="logo__sep" aria-hidden="true"></span><span class="logo__letter">S</span>
+      </a>
+      <div class="top-nav__links">
+        <a class="nav-link is-active" href="materials.html#formats" data-tooltip="&#51088;&#51116;&#47532;&#49828;&#53944;"><span class="nav-label">Collections</span></a>
+        <a class="nav-link" href="auxiliary.html#brands" data-tooltip="&#50577;&#48320;&#44592;&amp;&#49688;&#51204;&#47448;"><span class="nav-label">Materials</span></a>
+        <a class="nav-link" href="top-picks.html" data-tooltip="&#52628;&#52380;&#49345;&#54408;"><span class="nav-label">Top picks</span></a>
+        <a class="nav-link" href="photo-gallery.html" data-tooltip="&#49884;&#44277;&#49324;&#51652;"><span class="nav-label">Gallery</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="gallery-page">
+      <div class="gallery-page__inner gallery-page__inner--wide">
+        <a class="gallery-page__back" id="ambra-detail-back" href="ambra-gallery.html?cat=wall">
+          <span class="material-symbols-outlined">arrow_back</span>
+          Back to Series
+        </a>
+
+        <div class="gallery-page__header">
+          <span class="eyebrow" id="ambra-detail-eyebrow">AMBRA CERAMIC</span>
+          <h1 id="ambra-detail-title">Series</h1>
+          <p id="ambra-detail-type">Product detail</p>
+        </div>
+
+        <div class="ambra-detail">
+          <div class="ambra-detail__hero" id="ambra-detail-hero" aria-hidden="true">
+            <span class="ambra-detail__hero-size" id="ambra-detail-size">—</span>
+            <span class="ambra-detail__hero-name" id="ambra-detail-hero-name">—</span>
+          </div>
+
+          <div class="ambra-detail__panel">
+            <span class="ambra-detail__brand">AMBRA CERAMIC</span>
+            <h2 class="ambra-detail__name" id="ambra-detail-name">—</h2>
+            <p class="ambra-detail__desc" id="ambra-detail-desc">—</p>
+
+            <dl class="point-detail__specs ambra-detail__specs">
+              <div class="point-detail__spec">
+                <dt>Brand</dt>
+                <dd>AMBRA CERAMIC</dd>
+              </div>
+              <div class="point-detail__spec">
+                <dt>Category</dt>
+                <dd id="ambra-detail-cat">—</dd>
+              </div>
+              <div class="point-detail__spec">
+                <dt>Size</dt>
+                <dd id="ambra-detail-spec-size">—</dd>
+              </div>
+              <div class="point-detail__spec">
+                <dt>Series</dt>
+                <dd id="ambra-detail-spec-name">—</dd>
+              </div>
+              <div class="point-detail__spec">
+                <dt>Type</dt>
+                <dd id="ambra-detail-spec-type">—</dd>
+              </div>
+              <div class="point-detail__spec">
+                <dt>Source</dt>
+                <dd>ambraceramic.com</dd>
+              </div>
+            </dl>
+
+            <p class="ambra-detail__character" id="ambra-detail-character"></p>
+
+            <div class="point-detail__actions">
+              <a class="point-detail__cta" id="ambra-official-link" href="https://ambraceramic.com/product" target="_blank" rel="noopener noreferrer">
+                &#44277;&#49885; &#49345;&#49464; &#48372;&#44592;
+                <span class="material-symbols-outlined">open_in_new</span>
+              </a>
+              <a class="point-detail__ghost" href="index.html#contact">SAMPLE REQUEST</a>
+            </div>
+          </div>
+        </div>
+
+        <section class="point-related" aria-labelledby="ambra-related-title">
+          <div class="point-related__head">
+            <span class="eyebrow">Same Category</span>
+            <h2 id="ambra-related-title">&#44057;&#51008; &#52852;&#53580;&#44256;&#47532; &#49884;&#47532;&#51592;</h2>
+          </div>
+          <div class="ambra-related__list" id="ambra-related-list"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/ambra-data.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const seriesId = params.get("series") || "50x230";
+      const series = AMBRA_DATA.seriesById(seriesId) || AMBRA_DATA.series[0];
+      const cat = AMBRA_DATA.categoryById(series.cat);
+      const title =
+        series.name === "CARRARA" ? "CARRARA SERIES" : `${series.size} ${series.name}`;
+
+      document.title = `${title} — AMBRA CERAMIC`;
+      document.getElementById("ambra-detail-back").href =
+        `ambra-gallery.html?cat=${encodeURIComponent(series.cat)}`;
+      document.getElementById("ambra-detail-eyebrow").textContent = cat
+        ? `AMBRA · ${cat.title}`
+        : "AMBRA CERAMIC";
+      document.getElementById("ambra-detail-title").textContent = title;
+      document.getElementById("ambra-detail-type").textContent = series.type;
+      document.getElementById("ambra-detail-size").textContent = series.size;
+      document.getElementById("ambra-detail-hero-name").textContent = series.name;
+      document.getElementById("ambra-detail-name").textContent = title;
+      document.getElementById("ambra-detail-desc").textContent = `${series.type} · ${series.size}`;
+      document.getElementById("ambra-detail-cat").textContent = cat ? cat.title : "—";
+      document.getElementById("ambra-detail-spec-size").textContent = series.size;
+      document.getElementById("ambra-detail-spec-name").textContent = series.name;
+      document.getElementById("ambra-detail-spec-type").textContent = series.type;
+      document.getElementById("ambra-detail-character").textContent =
+        `${title} is part of the AMBRA CERAMIC ${series.type} lineup. Colorways and full specifications continue on the official product page.`;
+
+      const official = document.getElementById("ambra-official-link");
+      official.href = AMBRA_DATA.officialUrl(series);
+
+      const related = AMBRA_DATA.seriesFor(series.cat)
+        .filter((item) => item.id !== series.id)
+        .slice(0, 6);
+      document.getElementById("ambra-related-list").innerHTML = related
+        .map((item) => {
+          const label =
+            item.name === "CARRARA" ? "CARRARA SERIES" : `${item.size} ${item.name}`;
+          return `
+            <a class="ambra-related__item" href="ambra-detail.html?series=${encodeURIComponent(item.id)}">
+              <span class="ambra-related__size">${item.size}</span>
+              <span class="ambra-related__name">${item.name}</span>
+              <span class="ambra-related__type">${item.type}</span>
+            </a>`;
+        })
+        .join("");
+    });
+  </script>
+</body>
+</html>

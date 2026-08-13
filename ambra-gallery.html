@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AMBRA CERAMIC — DS</title>
+  <title>AMBRA Gallery — DS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
@@ -28,23 +28,18 @@
   <main>
     <section class="gallery-page">
       <div class="gallery-page__inner">
-        <a class="gallery-page__back" href="catalog.html?format=200x1200">
+        <a class="gallery-page__back" href="point-02.html">
           <span class="material-symbols-outlined">arrow_back</span>
-          Back to Point
+          Back to AMBRA CERAMIC
         </a>
 
         <div class="gallery-page__header">
-          <span class="eyebrow">Partner Brand</span>
-          <h1>AMBRA CERAMIC</h1>
-          <p>PRODUCT &#52852;&#53580;&#44256;&#47532;&#47484; &#49440;&#53469;&#54616;&#49464;&#50836;</p>
+          <span class="eyebrow" id="ambra-cat-eyebrow">AMBRA CERAMIC</span>
+          <h1 id="ambra-cat-title">Series</h1>
+          <p id="ambra-cat-desc">&#49884;&#47532;&#51592;&#47484; &#49440;&#53469;&#54616;&#49464;&#50836;</p>
         </div>
 
-        <nav class="gallery-list" aria-label="AMBRA CERAMIC categories" id="ambra-categories"></nav>
-
-        <p class="ambra-hub__note">
-          &#50640;&#47532;&#54532;&#45716; <a href="https://ambraceramic.com/product" target="_blank" rel="noopener noreferrer">ambraceramic.com</a>
-          PRODUCT &#44396;&#51312;&#47484; &#44592;&#51456;&#51004;&#47196; &#51221;&#47532;&#54633;&#45768;&#45796;.
-        </p>
+        <nav class="gallery-list" aria-label="AMBRA series list" id="ambra-series-list"></nav>
       </div>
     </section>
   </main>
@@ -52,20 +47,30 @@
   <script src="js/ambra-data.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const root = document.getElementById("ambra-categories");
-      if (!root || !window.AMBRA_DATA) return;
+      const params = new URLSearchParams(window.location.search);
+      const catId = params.get("cat") || "wall";
+      const cat = AMBRA_DATA.categoryById(catId) || AMBRA_DATA.categories[0];
+      const list = AMBRA_DATA.seriesFor(cat.id);
 
-      root.innerHTML = AMBRA_DATA.categories
-        .map((cat) => {
-          const count = AMBRA_DATA.seriesFor(cat.id).length;
+      document.title = `${cat.title} — AMBRA CERAMIC`;
+      document.getElementById("ambra-cat-eyebrow").textContent = "AMBRA · PRODUCT";
+      document.getElementById("ambra-cat-title").textContent = cat.title;
+      document.getElementById("ambra-cat-desc").textContent =
+        `${cat.subtitle} · ${list.length} series`;
+
+      const root = document.getElementById("ambra-series-list");
+      root.innerHTML = list
+        .map((item, index) => {
+          const num = String(index + 1).padStart(2, "0");
+          const title = item.name === "CARRARA" ? "CARRARA SERIES" : `${item.size} ${item.name}`;
           return `
-            <a class="gallery-list__item" href="ambra-gallery.html?cat=${encodeURIComponent(cat.id)}">
+            <a class="gallery-list__item" href="ambra-detail.html?series=${encodeURIComponent(item.id)}">
               <span class="gallery-list__icon" aria-hidden="true">
                 <span class="material-symbols-outlined">${cat.icon}</span>
               </span>
-              <span class="gallery-list__num">${cat.number}</span>
-              <span class="gallery-list__title">${cat.title}</span>
-              <span class="gallery-list__meta">${cat.subtitle} · ${count}</span>
+              <span class="gallery-list__num">${num}</span>
+              <span class="gallery-list__title">${title}</span>
+              <span class="gallery-list__meta">${item.type}</span>
             </a>`;
         })
         .join("");

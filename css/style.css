@@ -1536,3 +1536,139 @@ input {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* AMBRA CERAMIC product hub / detail */
+.ambra-hub__note {
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.ambra-hub__note a {
+  color: var(--charcoal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ambra-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 36px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ambra-detail__hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: 280px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(160deg, #f7f5f1 0%, #ebe7df 48%, #dfd8cc 100%);
+}
+
+.ambra-detail__hero-size {
+  font-family: "Libre Caslon Text", serif;
+  font-size: clamp(28px, 5vw, 40px);
+  letter-spacing: -0.02em;
+}
+
+.ambra-detail__hero-name {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ambra-detail__brand {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-tertiary);
+}
+
+.ambra-detail__name {
+  margin: 0 0 8px;
+  font-family: "Libre Caslon Text", serif;
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 400;
+}
+
+.ambra-detail__desc,
+.ambra-detail__character {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.ambra-detail__specs {
+  margin-bottom: 24px;
+}
+
+.ambra-related__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.ambra-related__item {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  background: #fff;
+  text-decoration: none;
+  color: var(--on-surface);
+  transition: border-color 0.2s var(--ease-soft);
+}
+
+.ambra-related__item:hover {
+  border-color: var(--charcoal);
+}
+
+.ambra-related__size {
+  font-family: "Libre Caslon Text", serif;
+  font-size: 15px;
+}
+
+.ambra-related__name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.ambra-related__type {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-tertiary);
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .ambra-detail {
+    grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+    gap: 48px;
+    align-items: start;
+  }
+
+  .ambra-detail__hero {
+    min-height: 420px;
+  }
+
+  .ambra-related__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}

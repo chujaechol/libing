@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=40" />
+  <link rel="stylesheet" href="css/style.css?v=41" />
 </head>
 <body>
   <nav class="top-nav is-scrolled" id="top-nav">
@@ -132,19 +132,25 @@
       const official = document.getElementById("ambra-official-link");
       official.href = AMBRA_DATA.officialUrl(series);
 
-      const related = AMBRA_DATA.seriesFor(series.cat)
-        .filter((item) => item.id !== series.id)
-        .slice(0, 6);
+      const related = AMBRA_DATA.seriesFor(series.cat);
       document.getElementById("ambra-related-list").innerHTML = related
         .map((item) => {
           const label =
             item.name === "CARRARA" ? "CARRARA SERIES" : `${item.size} ${item.name}`;
+          const officialHref = AMBRA_DATA.officialUrl(item);
+          const isCurrent = item.id === series.id ? " is-current" : "";
           return `
-            <a class="ambra-related__item" href="ambra-detail.html?series=${encodeURIComponent(item.id)}">
-              <span class="ambra-related__size">${item.size}</span>
-              <span class="ambra-related__name">${item.name}</span>
-              <span class="ambra-related__type">${item.type}</span>
-            </a>`;
+            <article class="ambra-related__item${isCurrent}">
+              <a class="ambra-related__main" href="ambra-detail.html?series=${encodeURIComponent(item.id)}">
+                <span class="ambra-related__size">${item.size}</span>
+                <span class="ambra-related__name">${item.name}</span>
+                <span class="ambra-related__type">${item.type}</span>
+              </a>
+              <a class="point-detail__cta ambra-related__official" href="${officialHref}" target="_blank" rel="noopener noreferrer">
+                &#44277;&#49885; &#49345;&#49464; &#48372;&#44592;
+                <span class="material-symbols-outlined">open_in_new</span>
+              </a>
+            </article>`;
         })
         .join("");
     });

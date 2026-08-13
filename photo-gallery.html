@@ -56,7 +56,7 @@
             <span class="gallery-list__title">600 × 600 Gallery</span>
             <span class="gallery-list__meta">Format</span>
           </a>
-          <a class="gallery-list__item" href="photo-gallery.html?cat=600x1200">
+          <a class="gallery-list__item" href="gallery-600x1200.html">
             <span class="gallery-list__icon" aria-hidden="true">
               <span class="material-symbols-outlined">width_normal</span>
             </span>
@@ -95,12 +95,10 @@
     document.addEventListener("DOMContentLoaded", () => {
       const cat = new URLSearchParams(window.location.search).get("cat");
       const labels = {
-        "600x1200": "600 × 1200 Gallery",
         kitchen: "주방 Gallery",
         entrance: "현관 Gallery",
       };
       const subtitles = {
-        "600x1200": "Format 600 × 1200 mm",
         kitchen: "Kitchen installation gallery",
         entrance: "Entrance installation gallery",
       };

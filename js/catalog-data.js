@@ -2562,18 +2562,19 @@ window.DS_CATALOG = {
       imageFit: "contain",
     },
     "CC-735": {
-      title: "CC-735",
+      title: "아르노 라운드 CC-735",
       description: "투피스 · 탱크밀결형 · 사이펀 변기 · 림리스 · 절수형",
       specs: {
         품번: "CC-735",
+        제품명: "아르노 라운드",
         KS: "㉿C1210CR2",
         사이즈: "690×400×740",
         용량: "평균사용수량 5ℓ",
       },
       gallery: ["assets/products/daelim/format-03.png"],
       character:
-        "대림바스 림리스 투피스 양변기입니다. 탱크밀결형·사이펀 구조와 절수형 설계로 위생과 관리 편의성을 높였습니다.",
-      cta: "대림바스 CC-735로 욕실의 완성도를 높여보세요.",
+        "대림바스 아르노 라운드(CC-735) 림리스 투피스 양변기입니다. 탱크밀결형·사이펀 구조와 절수형 설계로 위생과 관리 편의성을 높였습니다.",
+      cta: "대림바스 아르노 라운드 CC-735로 욕실의 완성도를 높여보세요.",
       imageFit: "contain",
       sourceUrl: "https://www.daelimbath.com/product/product_view?idx=682",
     },

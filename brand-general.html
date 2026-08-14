@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catalogue — DS</title>
+  <title>General — DS</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -19,6 +19,7 @@
             "surface-container": "#eeeeee",
             "surface-container-low": "#f4f3f3",
             "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e2e2e2",
             "outline-variant": "#c4c7c7",
             "on-tertiary-container": "#838483",
           },
@@ -61,7 +62,7 @@
       </a>
       <nav class="hidden md:flex items-center gap-10">
         <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="index.html">COLLECTIONS</a>
-        <a class="font-label-caps text-label-caps text-primary font-bold" href="auxiliary.html#brands">MATERIALS</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="auxiliary.html#brands">MATERIALS</a>
         <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="top-picks.html">TOP PICKS</a>
         <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="photo-gallery.html">GALLERY</a>
       </nav>
@@ -79,31 +80,65 @@
 
   <main class="w-full pt-20">
     <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20">
-      <a href="materials.html" class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface mb-10">
+      <a href="auxiliary.html#brands" class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface mb-10">
         <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-        BACK TO FORMATS
+        BACK TO BRANDS
       </a>
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-outline-variant pb-8">
         <div>
-          <span class="font-label-caps text-label-caps text-secondary mb-3 block">CATALOGUE</span>
-          <h1 class="font-display-lg text-on-surface" id="catalog-title">Format</h1>
-          <p class="font-body-md text-on-surface-variant mt-3" id="catalog-count">0 products</p>
+          <span class="font-label-caps text-label-caps text-secondary mb-3 block">GENERAL COLLECTION</span>
+          <h1 class="font-display-lg text-on-surface tracking-[0.08em]">GENERAL</h1>
+          <p class="font-body-md text-on-surface-variant mt-3">규격 3종을 선택해 카탈로그를 확인하세요.</p>
         </div>
       </div>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter" id="catalog-grid"></ul>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+        <a href="catalog.html?format=600x600" class="group relative bg-surface-container-low p-gutter transition-all duration-500 hover:bg-surface-container-highest flex flex-col justify-between aspect-[3/4]">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant">FORMAT 01</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="format-tile-stage relative flex justify-center items-center py-14">
+            <div class="format-tile w-28 h-28" style="background-image: url('assets/tile-600x600.png')" role="img" aria-label="600 × 600 mm 타일 샘플"></div>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">600 × 600 mm</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Modular Square / 10mm</p>
+          </div>
+        </a>
+
+        <a href="catalog.html?format=300x600" class="group relative bg-surface-container-low p-gutter transition-all duration-500 hover:bg-surface-container-highest flex flex-col justify-between aspect-[3/4]">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant">FORMAT 02</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="format-tile-stage relative flex justify-center items-center py-14">
+            <div class="format-tile w-20 h-40" style="background-image: url('assets/products/300x600/v-lava1.png')" role="img" aria-label="V-라바1"></div>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">300 × 600 mm</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Classic Rectangle / 10mm</p>
+          </div>
+        </a>
+
+        <a href="catalog.html?format=600x1200" class="group relative bg-surface-container-low p-gutter transition-all duration-500 hover:bg-surface-container-highest flex flex-col justify-between aspect-[3/4]">
+          <div class="flex justify-between items-start">
+            <span class="font-label-caps text-label-caps text-on-surface-variant">FORMAT 03</span>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+          </div>
+          <div class="format-tile-stage relative flex justify-center items-center py-14">
+            <div class="format-tile w-24 h-48" style="background-image: url('assets/tile-600x1200.png')" role="img" aria-label="600 × 1200 mm 타일 샘플"></div>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">600 × 1200 mm</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Architectural Planking / 10mm</p>
+          </div>
+        </a>
+      </div>
     </section>
   </main>
 
-  <footer class="w-full bg-surface-container-lowest py-16 border-t border-outline-variant/30">
-    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center">
-      <p class="font-label-caps text-label-caps text-on-tertiary-container">© 2024 DS ARCHITECTURAL SURFACES</p>
-      <a class="font-label-caps text-label-caps" href="materials.html">MATERIALS</a>
-    </div>
-  </footer>
-
-  <script src="js/catalog-data.js"></script>
   <script src="js/site.js"></script>
-  <script src="js/catalog-page.js"></script>
     <script src="js/search-index.js"></script>
   <script src="js/site-search.js"></script>
   <script src="js/back-to-top.js"></script>

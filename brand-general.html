@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
@@ -80,66 +80,129 @@
 
   <main class="w-full pt-20">
     <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20">
-      <a href="auxiliary.html#brands" class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface mb-10">
+      <a id="general-back" href="auxiliary.html#brands" class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface mb-10">
         <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-        BACK TO BRANDS
+        <span id="general-back-label">BACK TO BRANDS</span>
       </a>
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-outline-variant pb-8">
         <div>
           <span class="font-label-caps text-label-caps text-secondary mb-3 block">GENERAL COLLECTION</span>
           <h1 class="font-display-lg text-on-surface tracking-[0.08em]">GENERAL</h1>
-          <p class="font-body-md text-on-surface-variant mt-3">규격 3종을 선택해 카탈로그를 확인하세요.</p>
+          <p id="general-subtitle" class="font-body-md text-on-surface-variant mt-3">카테고리를 선택해 제품을 확인하세요.</p>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
-        <a href="catalog.html?format=600x600" class="group relative bg-surface-container-low p-gutter transition-all duration-500 hover:bg-surface-container-highest flex flex-col justify-between aspect-[3/4]">
+      <div id="general-categories" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+        <a href="brand-general.html?cat=sanitary" class="group relative bg-surface-container-low p-gutter transition-all duration-500 hover:bg-surface-container-highest flex flex-col justify-between aspect-[3/4]">
           <div class="flex justify-between items-start">
             <span class="font-label-caps text-label-caps text-on-surface-variant">FORMAT 01</span>
             <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
           </div>
           <div class="format-tile-stage relative flex justify-center items-center py-14">
-            <div class="format-tile w-28 h-28" style="background-image: url('assets/tile-600x600.png')" role="img" aria-label="600 × 600 mm 타일 샘플"></div>
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors" aria-hidden="true">countertops</span>
           </div>
           <div>
-            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">600 × 600 mm</h4>
-            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Modular Square / 10mm</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">양변기&세면기</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Toilet & Basin</p>
           </div>
         </a>
 
-        <a href="catalog.html?format=300x600" class="group relative bg-surface-container-low p-gutter transition-all duration-500 hover:bg-surface-container-highest flex flex-col justify-between aspect-[3/4]">
+        <a href="brand-general.html?cat=faucet" class="group relative bg-surface-container-low p-gutter transition-all duration-500 hover:bg-surface-container-highest flex flex-col justify-between aspect-[3/4]">
           <div class="flex justify-between items-start">
             <span class="font-label-caps text-label-caps text-on-surface-variant">FORMAT 02</span>
             <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
           </div>
           <div class="format-tile-stage relative flex justify-center items-center py-14">
-            <div class="format-tile w-20 h-40" style="background-image: url('assets/products/300x600/v-lava1.png')" role="img" aria-label="V-라바1"></div>
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors" aria-hidden="true">water_drop</span>
           </div>
           <div>
-            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">300 × 600 mm</h4>
-            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Classic Rectangle / 10mm</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">수전류</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Faucet</p>
           </div>
         </a>
 
-        <a href="catalog.html?format=600x1200" class="group relative bg-surface-container-low p-gutter transition-all duration-500 hover:bg-surface-container-highest flex flex-col justify-between aspect-[3/4]">
+        <a href="brand-general.html?cat=accessory" class="group relative bg-surface-container-low p-gutter transition-all duration-500 hover:bg-surface-container-highest flex flex-col justify-between aspect-[3/4]">
           <div class="flex justify-between items-start">
             <span class="font-label-caps text-label-caps text-on-surface-variant">FORMAT 03</span>
             <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
           </div>
           <div class="format-tile-stage relative flex justify-center items-center py-14">
-            <div class="format-tile w-24 h-48" style="background-image: url('assets/tile-600x1200.png')" role="img" aria-label="600 × 1200 mm 타일 샘플"></div>
+            <span class="material-symbols-outlined text-[96px] text-on-surface-variant/40 group-hover:text-primary/50 transition-colors" aria-hidden="true">bathroom</span>
           </div>
           <div>
-            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">600 × 1200 mm</h4>
-            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Architectural Planking / 10mm</p>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">악세사리</h4>
+            <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">Accessory</p>
           </div>
         </a>
+      </div>
+
+      <div id="general-products" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter"></div>
+
+      <div id="general-empty" class="hidden py-24 text-center">
+        <p class="font-headline-sm text-headline-sm text-on-surface mb-3">준비 중</p>
+        <p class="font-body-md text-on-surface-variant">해당 카테고리 제품을 곧 업데이트할 예정입니다.</p>
       </div>
     </section>
   </main>
 
   <script src="js/site.js"></script>
-    <script src="js/search-index.js"></script>
+  <script src="js/catalog-data.js?v=20260817f"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cat = new URLSearchParams(window.location.search).get("cat");
+      const categories = document.getElementById("general-categories");
+      const products = document.getElementById("general-products");
+      const empty = document.getElementById("general-empty");
+      const subtitle = document.getElementById("general-subtitle");
+      const back = document.getElementById("general-back");
+      const backLabel = document.getElementById("general-back-label");
+
+      const labels = {
+        sanitary: "양변기&세면기",
+        faucet: "수전류",
+        accessory: "악세사리",
+      };
+
+      if (!cat) return;
+
+      categories.classList.add("hidden");
+      back.href = "brand-general.html";
+      backLabel.textContent = "BACK TO CATEGORIES";
+      subtitle.textContent = labels[cat] || "Category";
+
+      const items = (window.DS_CATALOG?.productsFor("general") || []).filter(
+        (item) => item.category === cat
+      );
+
+      if (items.length && products) {
+        products.classList.remove("hidden");
+        products.innerHTML = items
+          .map((item, index) => {
+            const href = `product.html?format=general&product=${encodeURIComponent(item.name)}&cat=${encodeURIComponent(cat)}`;
+            const num = String(index + 1).padStart(2, "0");
+            return `
+          <a href="${href}" class="group relative bg-surface-container-low p-gutter aspect-[3/4] flex flex-col justify-between hover:bg-surface-container-highest transition-colors">
+            <div class="flex justify-between items-start">
+              <span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors">${num}</span>
+              <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_full</span>
+            </div>
+            <div class="relative flex justify-center items-center py-6 flex-1">
+              <img src="${item.image}" alt="${item.name}" class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+            <div>
+              <p class="font-label-caps text-label-caps text-on-surface-variant mb-2">${item.brand || "GENERAL"}</p>
+              <h4 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">${item.name}</h4>
+              <p class="font-label-caps text-label-caps text-on-tertiary-container uppercase">${item.finish || ""}</p>
+            </div>
+          </a>`;
+          })
+          .join("");
+      } else {
+        empty.classList.remove("hidden");
+      }
+    });
+  </script>
+  <script src="js/search-index.js"></script>
   <script src="js/site-search.js"></script>
   <script src="js/back-to-top.js"></script>
 </body>

@@ -10,8 +10,11 @@
     .site-search__input::placeholder{color:#8a8d8d;}
     .site-search__hint{padding:8px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#838483;}
     .site-search__results{max-height:min(48vh,420px);overflow:auto;margin:0;padding:0;list-style:none;}
-    .site-search__item{display:block;width:100%;text-align:left;border:0;background:transparent;padding:12px 16px;cursor:pointer;border-top:1px solid #eee;}
+    .site-search__item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:0;background:transparent;padding:10px 16px;cursor:pointer;border-top:1px solid #eee;}
     .site-search__item:hover,.site-search__item.is-active{background:#eee;}
+    .site-search__thumb{width:48px;height:48px;object-fit:contain;background:#f0f0ee;flex-shrink:0;display:block;}
+    .site-search__thumb.is-empty{display:none;}
+    .site-search__item-copy{min-width:0;flex:1;}
     .site-search__item-title{display:block;font-size:14px;color:#1a1c1c;}
     .site-search__item-path{display:block;margin-top:4px;font-size:11px;letter-spacing:.08em;color:#838483;}
     .site-search-trigger{width:40px;height:40px;border:0;background:transparent;color:inherit;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -40,58 +43,49 @@
   }
 
   function scrollToQuery(query) {
-    const needle = normalize(query);
-    if (!needle) return false;
-    document.querySelectorAll(".ds-search-hit, mark.ds-search-hit").forEach((el) => {
-      if (el.tagName === "MARK") {
+    try {
+      if (/product\.html/i.test(location.pathname)) return false;
+      const needle = normalize(query);
+      if (!needle) return false;
+      document.querySelectorAll("mark.ds-search-hit").forEach((el) => {
         const parent = el.parentNode;
+        if (!parent) return;
         parent.replaceChild(document.createTextNode(el.textContent), el);
         parent.normalize();
-      } else {
-        el.classList.remove("ds-search-hit");
+      });
+      document.querySelectorAll(".ds-search-hit").forEach((el) => el.classList.remove("ds-search-hit"));
+
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          const parent = node.parentElement;
+          if (!parent || parent.closest("script,style,noscript,.site-search,.top-nav,header,nav,img,picture")) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          return normalize(node.nodeValue).includes(needle) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+        },
+      });
+
+      const node = walker.nextNode();
+      if (!node || !node.parentElement) return false;
+      const raw = node.nodeValue || "";
+      const start = raw.toLowerCase().indexOf(String(query).trim().toLowerCase());
+      const length = String(query).trim().length;
+      if (start >= 0 && start + length <= raw.length) {
+        const range = document.createRange();
+        range.setStart(node, start);
+        range.setEnd(node, start + length);
+        const mark = document.createElement("mark");
+        mark.className = "ds-search-hit";
+        range.surroundContents(mark);
+        mark.scrollIntoView({ behavior: "smooth", block: "center" });
+        return true;
       }
-    });
-
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-      acceptNode(node) {
-        const parent = node.parentElement;
-        if (!parent || parent.closest("script,style,noscript,.site-search,.top-nav,header,nav")) {
-          return NodeFilter.FILTER_REJECT;
-        }
-        return normalize(node.nodeValue).includes(needle) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
-      },
-    });
-
-    const node = walker.nextNode();
-    if (!node) return false;
-    const raw = node.nodeValue;
-    const idx = normalize(raw).indexOf(needle);
-    if (idx < 0) {
       node.parentElement.classList.add("ds-search-hit");
       node.parentElement.scrollIntoView({ behavior: "smooth", block: "center" });
       return true;
-    }
-    const start = raw.toLowerCase().indexOf(query.trim().toLowerCase());
-    const length = query.trim().length;
-    if (start < 0) {
-      node.parentElement.classList.add("ds-search-hit");
-      node.parentElement.scrollIntoView({ behavior: "smooth", block: "center" });
-      return true;
-    }
-    const range = document.createRange();
-    range.setStart(node, start);
-    range.setEnd(node, start + length);
-    const mark = document.createElement("mark");
-    mark.className = "ds-search-hit";
-    try {
-      range.surroundContents(mark);
     } catch (err) {
-      node.parentElement.classList.add("ds-search-hit");
-      node.parentElement.scrollIntoView({ behavior: "smooth", block: "center" });
-      return true;
+      return false;
     }
-    mark.scrollIntoView({ behavior: "smooth", block: "center" });
-    return true;
   }
 
   function collectLiveIndex() {
@@ -106,6 +100,7 @@
             title: product.name,
             path: catalog.formatLabel ? catalog.formatLabel(format) : format,
             url: href,
+            image: product.image || "",
           });
         });
       });
@@ -117,6 +112,7 @@
           title: product.name,
           path: product.category ? `모짜이크 · ${product.category}` : "모짜이크",
           url: `product.html?format=mosaic&product=${encodeURIComponent(product.name)}`,
+          image: product.image || "",
         });
       });
     }
@@ -125,6 +121,28 @@
 
   function allIndex() {
     return [...(window.DS_SEARCH_INDEX || []), ...collectLiveIndex()];
+  }
+
+  function lookupImage(item) {
+    if (item?.image) return item.image;
+    try {
+      const target = new URL(item.url, location.href);
+      if (!/product\.html$/i.test(target.pathname)) return "";
+      const format = target.searchParams.get("format");
+      const name = target.searchParams.get("product");
+      const product = (window.DS_CATALOG?.productsFor(format) || []).find((row) => row.name === name);
+      return product?.image || "";
+    } catch (err) {
+      return "";
+    }
+  }
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
   }
 
   function search(query) {
@@ -138,20 +156,35 @@
       const key = `${item.url}|${item.title}`;
       if (seen.has(key)) continue;
       seen.add(key);
-      hits.push(item);
+      hits.push({ ...item, image: lookupImage(item) });
       if (hits.length >= 40) break;
     }
+    hits.sort((a, b) => {
+      const aProduct = /product\.html/i.test(a.url) ? 0 : 1;
+      const bProduct = /product\.html/i.test(b.url) ? 0 : 1;
+      if (aProduct !== bProduct) return aProduct - bProduct;
+      const aImg = a.image ? 0 : 1;
+      const bImg = b.image ? 0 : 1;
+      return aImg - bImg;
+    });
     return hits;
   }
 
   function goTo(item, query) {
     closePanel();
-    if (samePage(item.url) && !item.url.includes("product.html")) {
+    const href = String(item.url || "").replace(/&amp;/g, "&");
+    if (samePage(href) && !/product\.html/i.test(href)) {
       if (scrollToQuery(query)) return;
     }
-    const target = new URL(item.url, location.href);
-    target.searchParams.set("find", query);
-    location.href = target.href;
+    try {
+      const target = new URL(href, location.href);
+      if (!/product\.html$/i.test(target.pathname) && query) {
+        target.searchParams.set("find", query);
+      }
+      location.href = target.href;
+    } catch (err) {
+      location.href = href;
+    }
   }
 
   let panel;
@@ -172,15 +205,22 @@
       return;
     }
     list.innerHTML = hits
-      .map(
-        (item, i) => `
+      .map((item, i) => {
+        const thumb = lookupImage(item);
+        const thumbHtml = thumb
+          ? `<img class="site-search__thumb" src="${escapeHtml(thumb)}" alt="" />`
+          : `<span class="site-search__thumb is-empty"></span>`;
+        return `
       <li>
         <button class="site-search__item${i === 0 ? " is-active" : ""}" type="button" data-i="${i}">
-          <span class="site-search__item-title">${item.title}</span>
-          <span class="site-search__item-path">${item.path || item.url}</span>
+          ${thumbHtml}
+          <span class="site-search__item-copy">
+            <span class="site-search__item-title">${escapeHtml(item.title)}</span>
+            <span class="site-search__item-path">${escapeHtml(item.path || item.url)}</span>
+          </span>
         </button>
-      </li>`
-      )
+      </li>`;
+      })
       .join("");
   }
 
@@ -192,12 +232,30 @@
     buttons[active].scrollIntoView({ block: "nearest" });
   }
 
+  function loadCatalog(done) {
+    if (window.DS_CATALOG) {
+      done();
+      return;
+    }
+    const existing = document.querySelector('script[src="js/catalog-data.js"]');
+    if (existing) {
+      existing.addEventListener("load", done);
+      setTimeout(done, 50);
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "js/catalog-data.js";
+    script.onload = done;
+    script.onerror = done;
+    document.head.appendChild(script);
+  }
   function openPanel() {
     panel.classList.add("is-open");
     panel.setAttribute("aria-hidden", "false");
     input.value = "";
     list.innerHTML = "";
     active = -1;
+    loadCatalog(() => {});
     setTimeout(() => input.focus(), 20);
   }
 
@@ -265,7 +323,8 @@
     });
 
     input.addEventListener("input", () => {
-      render(search(input.value), input.value);
+      const query = input.value;
+      loadCatalog(() => render(search(query), query));
     });
 
     input.addEventListener("keydown", (event) => {
@@ -313,7 +372,7 @@
     });
 
     const find = new URLSearchParams(location.search).get("find");
-    if (find) {
+    if (find && !/product\.html/i.test(location.pathname)) {
       const tryScroll = () => scrollToQuery(find);
       tryScroll();
       setTimeout(tryScroll, 250);

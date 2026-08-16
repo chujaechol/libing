@@ -194,6 +194,7 @@ window.DS_CATALOG = {
       { brand: "DS TILE", name: "G-1212904", finish: "무광", image: "assets/products/1200x1200/g-1212904.png" },
       { brand: "DS TILE", name: "G-ML1237", finish: "무광", image: "assets/products/1200x1200/g-ml1237.png" },
     ],
+    general: [],
     daelim: [
       { brand: "대림바스", name: "DL-734", finish: "유광", category: "양변기", image: "assets/products/daelim/dl-734.png" },
       { brand: "대림바스", name: "CC-735", finish: "유광", category: "양변기", image: "assets/products/daelim/format-03.png" },

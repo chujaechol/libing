@@ -1,7 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const formatKey = params.get("format");
-  const productName = params.get("product");
+  const decodeProductName = (value) => {
+    let name = value || "";
+    for (let i = 0; i < 2; i += 1) {
+      try {
+        const decoded = decodeURIComponent(name.replace(/\+/g, " "));
+        if (decoded === name) break;
+        name = decoded;
+      } catch (err) {
+        break;
+      }
+    }
+    return name.trim();
+  };
+  const productName = decodeProductName(params.get("product"));
   const back = document.getElementById("product-back");
 
   if (!window.DS_CATALOG) return;
@@ -36,6 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (bidetProducts.includes(productName)) backCat = "bidet";
     back.href = `brand-lauche.html?cat=${backCat}`;
     back.innerHTML = `<span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO LAUCHE`;
+  } else if (formatKey === "general") {
+    const cat = params.get("cat") || "sanitary";
+    back.href = `brand-general.html?cat=${encodeURIComponent(cat)}`;
+    back.innerHTML = `<span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO GENERAL`;
   } else if (formatKey === "600x600") {
     back.href = "gallery-600x600.html";
     back.innerHTML = `<span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO GALLERY`;
@@ -49,7 +66,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const products = DS_CATALOG.productsFor(formatKey);
-  const product = products.find((p) => p.name === productName);
+  const namesMatch = (left, right) =>
+    String(left || "").replace(/\s+/g, " ").trim() === String(right || "").replace(/\s+/g, " ").trim();
+  let product = products.find((p) => namesMatch(p.name, productName));
+  if (!product && productName) {
+    Object.values(DS_CATALOG.byFormat || {}).some((list) => {
+      product = (list || []).find((p) => namesMatch(p.name, productName));
+      return Boolean(product);
+    });
+  }
 
   if (!product) {
     document.getElementById("product-title").textContent = "Product not found";
@@ -82,17 +107,21 @@ document.addEventListener("DOMContentLoaded", () => {
   descEl.style.whiteSpace = detail.description?.includes("\n") ? "pre-line" : "";
 
   const productImage = document.getElementById("product-image");
-  productImage.src = detail.image;
-  productImage.alt = detail.title;
+  if (productImage && detail.image) {
+    productImage.src = detail.image;
+    productImage.alt = detail.title;
+  }
   const detailImage = document.getElementById("product-detail-image");
   if (detail.imageFit === "contain") {
-    productImage.classList.remove("object-cover");
-    productImage.classList.add("object-contain", "bg-surface-container-lowest");
-    detailImage.classList.remove("object-cover", "grayscale", "opacity-80");
-    detailImage.classList.add("object-contain", "bg-surface-container-lowest");
+    productImage?.classList.remove("object-cover");
+    productImage?.classList.add("object-contain", "bg-surface-container-lowest");
+    detailImage?.classList.remove("object-cover", "grayscale", "opacity-80");
+    detailImage?.classList.add("object-contain", "bg-surface-container-lowest");
   }
-  detailImage.src = detail.image;
-  detailImage.alt = detail.title;
+  if (detailImage && detail.image) {
+    detailImage.src = detail.image;
+    detailImage.alt = detail.title;
+  }
 
   const characterTitle = document.getElementById("product-character-title");
   if (characterTitle) {

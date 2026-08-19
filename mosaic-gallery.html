@@ -100,22 +100,23 @@
 
       if (cat === "rect" && window.MOSAIC_RECT) {
         if (!sizeKey) {
+          const allItems = [];
+          MOSAIC_RECT.forEach((size) => {
+            size.items.forEach((item) => {
+              allItems.push({
+                ...item,
+                back: "cat=rect",
+              });
+            });
+          });
+          allItems.forEach((item, i) => {
+            item.n = i + 1;
+          });
+
           titleEl.textContent = "직사각";
-          countEl.textContent = `규격 ${MOSAIC_RECT.length}개 · 클릭 후 상세 확인`;
+          countEl.textContent = `${allItems.length} products · 상세 페이지 연결`;
           document.title = "직사각 — 모짜이크 — DS";
-          sizeList.hidden = false;
-          sizeList.innerHTML = MOSAIC_RECT.map((size, i) => {
-            const num = String(i + 1).padStart(2, "0");
-            return `
-              <a class="gallery-list__item" href="mosaic-gallery.html?cat=rect&size=${encodeURIComponent(size.key)}">
-                <span class="gallery-list__icon" aria-hidden="true">
-                  <span class="material-symbols-outlined">crop_16_9</span>
-                </span>
-                <span class="gallery-list__num">${num}</span>
-                <span class="gallery-list__title">${size.label}</span>
-                <span class="gallery-list__meta">${size.count} ITEMS</span>
-              </a>`;
-          }).join("");
+          renderProducts(allItems, formatsEl);
           return;
         }
 

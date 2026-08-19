@@ -280,7 +280,7 @@ function renderShowcase(detail, formatKey) {
     }
   }
 
-  const productSrc = detail.image;
+  const productSrc = detail.showcaseImage || detail.image;
   const lifestyleSrc = detail.lifestyleImage || (detail.gallery || []).find((src) => src !== productSrc) || productSrc;
   const thumbs = detail.thumbs?.length
     ? detail.thumbs
@@ -304,7 +304,7 @@ function renderShowcase(detail, formatKey) {
   const thumbsEl = document.getElementById("showcase-thumbs");
 
   if (festival) festival.textContent = detail.showcaseTitle || detail.title;
-  if (badge) badge.textContent = detail.name || detail.specs?.품번 || "DS";
+  if (badge) badge.textContent = detail.showcaseBadge || detail.name || detail.specs?.품번 || "DS";
   if (mainImg) {
     mainImg.src = productSrc;
     mainImg.alt = detail.title;

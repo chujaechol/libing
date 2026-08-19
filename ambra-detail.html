@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=41" />
+  <link rel="stylesheet" href="css/style.css?v=42" />
 </head>
 <body>
   <nav class="top-nav is-scrolled" id="top-nav">
@@ -39,7 +39,9 @@
           <p id="ambra-detail-type">Product detail</p>
         </div>
 
-        <div class="ambra-detail">
+        <div class="gallery-formats" id="ambra-detail-grid" hidden></div>
+
+        <div class="ambra-detail" id="ambra-detail-block">
           <div class="ambra-detail__hero" id="ambra-detail-hero" aria-hidden="true">
             <span class="ambra-detail__hero-size" id="ambra-detail-size">—</span>
             <span class="ambra-detail__hero-name" id="ambra-detail-hero-name">—</span>
@@ -131,6 +133,29 @@
 
       const official = document.getElementById("ambra-official-link");
       official.href = AMBRA_DATA.officialUrl(series);
+
+      const gridEl = document.getElementById("ambra-detail-grid");
+      const heroEl = document.getElementById("ambra-detail-hero");
+      if (gridEl && Array.isArray(series.images) && series.images.length) {
+        gridEl.hidden = false;
+        if (heroEl) heroEl.hidden = true;
+        gridEl.innerHTML = series.images
+          .map((img, index) => {
+            const num = String(index + 1).padStart(2, "0");
+            const label = img.name || `${series.name} ${num}`;
+            return `
+              <figure class="gallery-format">
+                <div class="gallery-format__media">
+                  <img src="${img.src}" alt="${label}" />
+                </div>
+                <figcaption class="gallery-format__caption">
+                  <span class="gallery-format__num">${num}</span>
+                  <span class="gallery-format__label">${label}</span>
+                </figcaption>
+              </figure>`;
+          })
+          .join("");
+      }
 
       const related = AMBRA_DATA.seriesFor(series.cat);
       document.getElementById("ambra-related-list").innerHTML = related

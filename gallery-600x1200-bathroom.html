@@ -53,8 +53,16 @@
           alt: "600 \u00D7 1200 Bathroom 01",
           href: "gallery-600x1200-01.html",
         },
-        { n: 2 },
-        { n: 3 },
+        {
+          n: 2,
+          src: "assets/gallery/600x1200/bathroom/02.png",
+          alt: "600 \u00D7 1200 Bathroom 02",
+        },
+        {
+          n: 3,
+          src: "assets/gallery/600x1200/bathroom/03.png",
+          alt: "600 \u00D7 1200 Bathroom 03",
+        },
       ];
 
       document.getElementById("gallery-formats").innerHTML = formats
@@ -74,11 +82,21 @@
                 </div>
               </a>`;
           }
+          if (item.src) {
+            return `
+              <figure class="gallery-format">
+                <div class="gallery-format__media">
+                  <img src="${item.src}" alt="${item.alt || label}" />
+                </div>
+                <figcaption class="gallery-format__caption">
+                  <span class="gallery-format__num">${num}</span>
+                  <span class="gallery-format__label">${label}</span>
+                </figcaption>
+              </figure>`;
+          }
           return `
-            <figure class="gallery-format">
-              <div class="gallery-format__media">
-                <img src="${item.src}" alt="${item.alt}" />
-              </div>
+            <figure class="gallery-format gallery-format--empty">
+              <div class="gallery-format__media" aria-hidden="true"></div>
               <figcaption class="gallery-format__caption">
                 <span class="gallery-format__num">${num}</span>
                 <span class="gallery-format__label">${label}</span>

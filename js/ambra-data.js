@@ -28,7 +28,11 @@ window.AMBRA_DATA = {
     },
   ],
   series: [
-    { id: "50x230", cat: "wall", size: "50 x 230", name: "SHEBRON", type: "INTERIOR WALL", slug: "50x230" },
+    { id: "50x230", cat: "wall", size: "50 x 230", name: "SHEBRON", type: "INTERIOR WALL", slug: "50x230", images: [
+      { src: "assets/products/ambra/50x230/01.jpg", name: "523C003 White" },
+      { src: "assets/products/ambra/50x230/02.jpg", name: "523C003M Matte" },
+      { src: "assets/products/ambra/50x230/03.jpg", name: "523C033 Dark Grey" },
+    ]},
     { id: "50x300", cat: "wall", size: "50 x 300", name: "SOLID", type: "INTERIOR WALL", slug: "50x300" },
     { id: "50x400", cat: "wall", size: "50 x 400", name: "SOLID", type: "INTERIOR WALL", slug: "50x400" },
     { id: "53x218", cat: "wall", size: "53 x 218", name: "TWO TONE", type: "INTERIOR WALL", slug: "53x218" },

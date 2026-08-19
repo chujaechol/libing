@@ -1,0 +1,15 @@
+---
+description: Always sync from GitHub and keep related gallery pages consistent
+alwaysApply: true
+---
+
+# GitHub · 갤러리 동기화
+
+사용자가 “불러와”, “동기화”라고 하지 않아도 항상 맞춘다.
+
+- 작업 시작 시 `git fetch origin` 후 `origin/master`와 로컬을 비교하고, 원격이 앞서면 `git pull` 한다.
+- 갤러리 이미지를 추가·교체하면 같은 Format 슬롯이 있는 관련 HTML을 함께 갱신한다.
+  - 예: `gallery-600x1200.html`, `gallery-600x1200-bathroom.html`, `gallery-600x1200-bathroom-01.html`
+- `assets`에 이미 있는 갤러리 사진은 HTML `formats`에 연결한다. 파일만 있고 빈 `gallery-format__media`로 두지 않는다.
+- 빈 칸에 이미지를 넣을 때는 다음 빈 Format부터 채운다.
+- `git push`는 사용자가 푸시를 명확히 지시할 때만 실행한다.

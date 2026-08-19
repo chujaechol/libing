@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=40" />
+  <link rel="stylesheet" href="css/style.css?v=42" />
 </head>
 <body>
   <nav class="top-nav is-scrolled" id="top-nav">
@@ -27,7 +27,7 @@
 
   <main>
     <section class="gallery-page">
-      <div class="gallery-page__inner">
+      <div class="gallery-page__inner" id="ambra-gallery-inner">
         <a class="gallery-page__back" href="point-02.html">
           <span class="material-symbols-outlined">arrow_back</span>
           Back to AMBRA CERAMIC
@@ -36,10 +36,11 @@
         <div class="gallery-page__header">
           <span class="eyebrow" id="ambra-cat-eyebrow">AMBRA CERAMIC</span>
           <h1 id="ambra-cat-title">Series</h1>
-          <p id="ambra-cat-desc">&#49884;&#47532;&#51592;&#47484; &#49440;&#53469;&#54616;&#49464;&#50836;</p>
+          <p id="ambra-cat-desc">시리즈를 선택하세요</p>
         </div>
 
         <nav class="gallery-list" aria-label="AMBRA series list" id="ambra-series-list"></nav>
+        <div class="gallery-formats" id="ambra-series-grid" hidden></div>
       </div>
     </section>
   </main>
@@ -58,8 +59,39 @@
       document.getElementById("ambra-cat-desc").textContent =
         `${cat.subtitle} · ${list.length} series`;
 
-      const root = document.getElementById("ambra-series-list");
-      root.innerHTML = list
+      const listEl = document.getElementById("ambra-series-list");
+      const gridEl = document.getElementById("ambra-series-grid");
+      const innerEl = document.getElementById("ambra-gallery-inner");
+
+      if (cat.id === "wall") {
+        listEl.hidden = true;
+        gridEl.hidden = false;
+        innerEl.classList.add("gallery-page__inner--wide");
+        gridEl.innerHTML = list
+          .map((item, index) => {
+            const num = String(index + 1).padStart(2, "0");
+            const title = `${item.size} ${item.name}`;
+            const media = item.images && item.images[0]
+              ? `<img src="${item.images[0].src}" alt="${title}" />`
+              : `<span class="ambra-gallery-card__size">${item.size}</span><span class="ambra-gallery-card__name">${item.name}</span>`;
+            const mediaClass = item.images && item.images[0] ? "" : " ambra-gallery-card";
+            return `
+              <a class="gallery-format gallery-format--link" href="ambra-detail.html?series=${encodeURIComponent(item.id)}">
+                <div class="gallery-format__media${mediaClass}">
+                  ${media}
+                </div>
+                <div class="gallery-format__caption">
+                  <span class="gallery-format__num">${num}</span>
+                  <span class="gallery-format__label">${title}</span>
+                  <span class="gallery-format__action">상세 보기</span>
+                </div>
+              </a>`;
+          })
+          .join("");
+        return;
+      }
+
+      listEl.innerHTML = list
         .map((item, index) => {
           const num = String(index + 1).padStart(2, "0");
           const title = item.name === "CARRARA" ? "CARRARA SERIES" : `${item.size} ${item.name}`;

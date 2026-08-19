@@ -908,6 +908,8 @@ input {
   align-items: center;
   gap: 10px;
   min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .gallery-list__thumb {
@@ -918,6 +920,21 @@ input {
   border: 1px solid var(--border);
   background: #f4f4f3;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.28s var(--ease-soft), box-shadow 0.28s var(--ease-soft);
+}
+
+.gallery-list__item:hover .gallery-list__heading {
+  z-index: 6;
+}
+
+.gallery-list__thumb:hover {
+  transform: scale(4.5);
+  transform-origin: left center;
+  z-index: 8;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+  background: #fff;
 }
 
 /* Tile format dimensions — e.g. 800 × 800 mm */
@@ -1549,6 +1566,31 @@ input {
   color: var(--charcoal);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.ambra-gallery-card {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 18px;
+  background:
+    linear-gradient(160deg, #f7f5f1 0%, #ebe7df 48%, #dfd8cc 100%);
+}
+
+.ambra-gallery-card__size {
+  font-family: "Libre Caslon Text", serif;
+  font-size: clamp(18px, 2.4vw, 26px);
+  letter-spacing: -0.02em;
+}
+
+.ambra-gallery-card__name {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .ambra-detail {

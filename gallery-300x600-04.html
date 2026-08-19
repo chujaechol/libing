@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K-881 — DS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#000000",
+            "on-primary": "#ffffff",
+            secondary: "#775a19",
+            surface: "#f9f9f9",
+            "on-surface": "#1a1c1c",
+            "on-surface-variant": "#434747",
+            "surface-container": "#eeeeee",
+            "surface-container-low": "#f4f3f3",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#e8e8e8",
+            "outline-variant": "#c4c7c7",
+          },
+          spacing: {
+            gutter: "24px",
+            "margin-mobile": "20px",
+            "section-gap": "128px",
+            "margin-desktop": "64px",
+          },
+          maxWidth: { "container-max": "1440px" },
+          fontFamily: {
+            "label-caps": ["DM Sans", "sans-serif"],
+            "headline-sm": ["Libre Caslon Text", "serif"],
+            "headline-md": ["Libre Caslon Text", "serif"],
+            "display-lg": ["Libre Caslon Text", "serif"],
+            "body-md": ["DM Sans", "sans-serif"],
+            "body-lg": ["DM Sans", "sans-serif"],
+          },
+          fontSize: {
+            "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "500" }],
+            "headline-sm": ["24px", { lineHeight: "1.4", fontWeight: "400" }],
+            "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "400" }],
+            "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400" }],
+            "display-lg-mobile": ["40px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+          },
+          borderRadius: { DEFAULT: "0px", full: "0px" },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+  <link rel="stylesheet" href="css/product-showcase.css" />
+</head>
+<body class="bg-surface font-body-md text-on-surface is-product-showcase">
+  <header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30" id="product-site-header">
+    <div class="h-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="font-label-caps text-label-caps tracking-[0.2em] text-on-surface">D · S</span>
+        <span class="font-label-caps text-label-caps tracking-widest hidden sm:inline">ARCHITECTURAL SURFACES</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-10">
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="index.html">COLLECTIONS</a>
+        <a class="font-label-caps text-label-caps text-primary font-bold" href="auxiliary.html#brands">MATERIALS</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="top-picks.html">TOP PICKS</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="photo-gallery.html">GALLERY</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden" type="button" aria-label="Menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+    <div id="mobile-nav" class="hidden md:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-6 flex flex-col gap-4">
+      <a href="index.html">COLLECTIONS</a>
+      <a href="auxiliary.html#brands">MATERIALS</a>
+      <a href="top-picks.html">TOP PICKS</a>
+      <a href="photo-gallery.html">GALLERY</a>
+    </div>
+  </header>
+
+  <main id="product-showcase-root">
+    <section class="product-showcase">
+      <div class="product-showcase__bg" aria-hidden="true"></div>
+      <div class="product-showcase__inner">
+        <a class="product-showcase__back" href="gallery-300x600.html">
+          <span class="material-symbols-outlined">arrow_back</span>
+          Back
+        </a>
+
+        <header class="product-showcase__brand">
+          <div class="product-showcase__logo" aria-hidden="true">
+            <span></span><span></span>
+          </div>
+          <p class="product-showcase__brand-name">DS</p>
+          <h1 class="product-showcase__festival">DS Soft Grey Collection</h1>
+        </header>
+
+        <div class="product-showcase__grid">
+          <div class="product-showcase__left">
+            <div class="product-showcase__hero-card">
+              <img
+                id="showcase-main-image"
+                class="product-showcase__hero-img"
+                src="assets/gallery/300x600/04-product.png"
+                alt="K-881"
+                style="object-fit: contain;"
+              />
+              <span class="product-showcase__badge">K-881</span>
+            </div>
+            <div class="product-showcase__thumbs" id="showcase-thumbs">
+              <button
+                type="button"
+                class="product-showcase__thumb product-showcase__thumb--contain is-active"
+                data-src="assets/gallery/300x600/04-product.png"
+                data-fit="contain"
+                aria-label="제품"
+              >
+                <img src="assets/gallery/300x600/04-product.png" alt="" />
+              </button>
+              <button
+                type="button"
+                class="product-showcase__thumb"
+                data-src="assets/gallery/300x600/04.png"
+                data-fit="cover"
+                aria-label="시공"
+              >
+                <img src="assets/gallery/300x600/04.png" alt="" />
+              </button>
+              <button
+                type="button"
+                class="product-showcase__thumb"
+                data-src="assets/gallery/300x600/04b.png"
+                data-fit="cover"
+                aria-label="시공 2"
+              >
+                <img src="assets/gallery/300x600/04b.png" alt="" />
+              </button>
+              <button
+                type="button"
+                class="product-showcase__thumb"
+                data-src="assets/gallery/300x600/04-product.png"
+                data-fit="cover"
+                aria-label="질감"
+              >
+                <img
+                  src="assets/gallery/300x600/04-product.png"
+                  alt=""
+                  style="object-fit:cover;transform:scale(1.35);transform-origin:center;"
+                />
+              </button>
+            </div>
+          </div>
+
+          <aside class="product-showcase__lifestyle">
+            <img
+              class="product-showcase__lifestyle-img"
+              src="assets/gallery/300x600/04.png"
+              alt="K-881 욕실 시공"
+            />
+            <div class="product-showcase__lifestyle-veil" aria-hidden="true"></div>
+            <div class="product-showcase__lifestyle-copy">
+              <h2>Quiet Grey Calm.</h2>
+              <p>Designed for modern bathrooms. Soft grey stone texture.</p>
+            </div>
+            <div class="product-showcase__lifestyle-cta">
+              <span class="product-showcase__event">300 × 600 PORCELAIN</span>
+              <p class="product-showcase__offer">Matte Finish · Soft Grey Stone</p>
+              <p class="product-showcase__fine">욕실 벽·바닥에 어울리는 K-881</p>
+              <a class="product-showcase__shop" href="index.html#contact">SAMPLE REQUEST</a>
+            </div>
+          </aside>
+        </div>
+
+        <div class="product-showcase__bottom">
+          <a class="product-showcase__primary-btn" href="index.html#contact">샘플 요청하기</a>
+        </div>
+
+        <section class="product-showcase__specs">
+          <h3>Technical Specifications</h3>
+          <div class="product-showcase__specs-grid">
+            <div class="product-showcase__spec-row">
+              <span>브랜드</span>
+              <span>DS TILE</span>
+            </div>
+            <div class="product-showcase__spec-row">
+              <span>품명</span>
+              <span>K-881</span>
+            </div>
+            <div class="product-showcase__spec-row">
+              <span>규격</span>
+              <span>300 × 600 mm</span>
+            </div>
+            <div class="product-showcase__spec-row">
+              <span>m²/Box</span>
+              <span>1.44</span>
+            </div>
+            <div class="product-showcase__spec-row">
+              <span>Pcs/Box</span>
+              <span>8</span>
+            </div>
+            <div class="product-showcase__spec-row">
+              <span>두께</span>
+              <span>10mm</span>
+            </div>
+            <div class="product-showcase__spec-row">
+              <span>마감</span>
+              <span>무광</span>
+            </div>
+            <div class="product-showcase__spec-row">
+              <span>재질</span>
+              <span>포세린</span>
+            </div>
+          </div>
+          <p class="product-showcase__character">
+            K-881은 밝은 그레이 톤의 석재 질감을 담은 300×600 포세린 타일입니다. 무광 표면과 부드러운 입자감이 욕실 벽면과 바닥에 정돈된 완성도를 더합니다.
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full bg-surface-container-lowest py-16 border-t border-outline-variant/30" id="product-site-footer">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center">
+      <p class="font-label-caps text-label-caps text-on-surface-variant">© 2024 DS ARCHITECTURAL SURFACES</p>
+      <a class="font-label-caps text-label-caps" href="photo-gallery.html">GALLERY</a>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mainImg = document.getElementById("showcase-main-image");
+      const thumbs = document.getElementById("showcase-thumbs");
+      if (!mainImg || !thumbs) return;
+
+      thumbs.querySelectorAll(".product-showcase__thumb").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          thumbs.querySelectorAll(".product-showcase__thumb").forEach((el) => el.classList.remove("is-active"));
+          btn.classList.add("is-active");
+          mainImg.src = btn.dataset.src;
+          mainImg.style.objectFit = btn.dataset.fit === "contain" ? "contain" : "cover";
+        });
+      });
+    });
+  </script>
+  <script src="js/search-index.js"></script>
+  <script src="js/site-search.js"></script>
+  <script src="js/back-to-top.js"></script>
+</body>
+</html>
